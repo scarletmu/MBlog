@@ -17,7 +17,7 @@ angular
     $stateProvider
       .state('/', {
         url: "/",
-        templateUrl: "views/main.html"
+        templateUrl: "views/topic.html"
       })
   })
   .config(function($mdThemingProvider) {

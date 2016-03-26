@@ -1,4 +1,4 @@
-<md-content class="md-padding" layout-xs="column" layout="row" ng-controller="MainCtrl">
+<md-content class="md-padding" layout-xs="column" layout="row" ng-controller="TopicCtrl">
     <div flex-xs flex-gt-xs="20" layout="column">
         <md-card>
             <md-list>
@@ -6,34 +6,40 @@
                 <md-list-item class="md-2-line"  ng-click="clickAlert()">
                     <!--<img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />-->
                     <div class="md-list-item-text">
-                        <h3>This is test</h3>
-                        <p>Secondary text</p>
+                        <h3>第一个分类</h3>
+                        <p>描述</p>
                     </div>
                 </md-list-item>
                 <md-list-item class="md-2-line" ng-click="clickAlert()">
                     <!--<img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />-->
                     <div class="md-list-item-text">
-                        <h3>This is test</h3>
-                        <p>Secondary text</p>
+                        <h3>第二个分类</h3>
+                        <p>描述</p>
                     </div>
                 </md-list-item>
             </md-list>
         </md-card>
     </div>
-    <div flex-xs flex-gt-xs="60" layout="column">
+    <div flex-xs flex-gt-xs="70" layout="column">
         <md-card>
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">Card with image</span>
-                    <span class="md-subhead">Large</span>
+                    <span class="md-headline">文章标题</span>
+                    <span class="md-subhead">2016/3/26<br><md-icon>visibility</md-icon> 2000 <md-icon>comment</md-icon> 20</span>
                 </md-card-title-text>
                 <md-card-title-media>
-                    <div class="md-media-lg card-media"></div>
+                    <div class="md-media-md card-media">
+                        <img ng-src="imgs/test.jpg"/>
+                    </div>
                 </md-card-title-media>
             </md-card-title>
+            <md-card-content>
+                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...<br>
+            </md-card-content>
             <md-card-actions layout="row" layout-align="end center">
-                <md-button>Action 1</md-button>
-                <md-button>Action 2</md-button>
+                <md-button class="md-icon-button" ng-click="showTopic($event)">
+                    <md-icon>forward</md-icon>
+                </md-button>
             </md-card-actions>
         </md-card>
     </div>

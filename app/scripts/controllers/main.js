@@ -15,7 +15,3 @@ angular
       }
     }
   })
-  .controller('MainCtrl',function($scope){
-    $scope.clickAlert = function(){
-    };
-  });
