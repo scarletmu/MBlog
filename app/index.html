@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Scarlet's Blog</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="iconfont/material-icons.css">
+    <!-- endbuild -->
+</head>
+<body ng-app="ScarletBlog" ng-controller="AppCtrl">
+<!--[if lte IE 8]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<md-toolbar ng-controller="NavCtrl">
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings">
+            <md-icon ng-click="toggleLeft()">menu</md-icon>
+        </md-button>
+        <h2>
+            <span>Scarlet's Blog</span>
+        </h2>
+        <span flex></span>
+        <md-menu>
+            <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="$mdOpenMenu()">
+                <md-icon >more_vert</md-icon>
+            </md-button>
+            <md-menu-content width="4">
+                <md-menu-item>
+                    <md-button ng-click="">
+                        <md-icon>phone</md-icon>
+                        Redial
+                    </md-button>
+                </md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item>
+                    <md-button ng-click="">
+                        <md-icon>mail</md-icon>
+                        Check voicemail
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+</md-toolbar>
+<md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"
+        md-disable-backdrop
+        md-whiteframe="5">
+    <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">左侧导航栏</h1>
+    </md-toolbar>
+    <md-content layout-padding>
+        <p hide-md show-gt-md>
+            这玩意是测试的
+        </p>
+    </md-content>
+</md-sidenav>
+<div class="container layout-padding">
+    <div ui-view=""></div>
+</div>
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/service.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<!-- endbuild -->
+</body>
+</html>

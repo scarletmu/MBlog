@@ -1,0 +1,40 @@
+<md-content class="md-padding" layout-xs="column" layout="row" ng-controller="MainCtrl">
+    <div flex-xs flex-gt-xs="20" layout="column">
+        <md-card>
+            <md-list>
+                <md-subheader class="md-no-sticky" style="background:gainsboro">文章分类</md-subheader>
+                <md-list-item class="md-2-line"  ng-click="clickAlert()">
+                    <!--<img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />-->
+                    <div class="md-list-item-text">
+                        <h3>This is test</h3>
+                        <p>Secondary text</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line" ng-click="clickAlert()">
+                    <!--<img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />-->
+                    <div class="md-list-item-text">
+                        <h3>This is test</h3>
+                        <p>Secondary text</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-card>
+    </div>
+    <div flex-xs flex-gt-xs="60" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Card with image</span>
+                    <span class="md-subhead">Large</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-lg card-media"></div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button>Action 1</md-button>
+                <md-button>Action 2</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</md-content>
