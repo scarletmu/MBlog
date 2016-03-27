@@ -3,5 +3,7 @@
  */
 angular.module('ScarletBlog')
   .service('Topic',function($http){
-
+    this.getList = function(page){
+      return $http.get('/topic/getList?page='+page);
+    }
   });

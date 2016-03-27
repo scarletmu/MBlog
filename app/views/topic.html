@@ -3,7 +3,7 @@
         <md-card>
             <md-list>
                 <md-subheader class="md-no-sticky" style="background:gainsboro">文章分类</md-subheader>
-                <md-list-item class="md-2-line"  ng-click="clickAlert()">
+                <md-list-item class="md-2-line" ng-click="clickAlert()">
                     <!--<img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />-->
                     <div class="md-list-item-text">
                         <h3>第一个分类</h3>
@@ -20,27 +20,60 @@
             </md-list>
         </md-card>
     </div>
-    <div flex-xs flex-gt-xs="70" layout="column">
-        <md-card>
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">文章标题</span>
-                    <span class="md-subhead">2016/3/26<br><md-icon>visibility</md-icon> 2000 <md-icon>comment</md-icon> 20</span>
-                </md-card-title-text>
-                <md-card-title-media>
-                    <div class="md-media-md card-media">
-                        <img ng-src="imgs/test.jpg"/>
-                    </div>
-                </md-card-title-media>
-            </md-card-title>
-            <md-card-content>
-                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...<br>
-            </md-card-content>
-            <md-card-actions layout="row" layout-align="end center">
-                <md-button class="md-icon-button" ng-click="showTopic($event)">
-                    <md-icon>forward</md-icon>
-                </md-button>
-            </md-card-actions>
-        </md-card>
+    <div flex-xs flex-gt-xs="75" layout-gt-md="row" layout="column">
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-toolbar class="md-menu-toolbar">
+                <div class="md-toolbar-tools">
+                    <h2>
+                        <span>置顶文章</span>
+                    </h2>
+                    <span flex></span>
+                </div>
+            </md-toolbar>
+            <md-card ng-repeat="topic in topicList track by $index">
+                <div class="headImg"><img ng-src="http://w2.hoopchina.com.cn/static/www/2016-03-27/1459039631369880885.jpg"/></div>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{topic.Title}}</span>
+                    <span class="md-subhead">2016/3/26 <md-icon>visibility</md-icon> {{topic.ViewNum}} <md-icon>
+                        comment
+                    </md-icon> {{topic.CommentNum}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>{{topic.Summary}}</md-card-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="md-icon-button" ng-click="showTopic($event)">
+                        <md-icon>zoom_in</md-icon>
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-toolbar class="md-menu-toolbar">
+                <div class="md-toolbar-tools">
+                    <h2>
+                        <span>最新文章</span>
+                    </h2>
+                    <span flex></span>
+                </div>
+            </md-toolbar>
+            <md-card ng-repeat="topic in topicList track by $index">
+                <div class="headImg"><img ng-src="http://w2.hoopchina.com.cn/static/www/2016-03-27/1459039631369880885.jpg"/></div>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{topic.Title}}</span>
+                    <span class="md-subhead">2016/3/26 <md-icon>visibility</md-icon> {{topic.ViewNum}} <md-icon>
+                        comment
+                    </md-icon> {{topic.CommentNum}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>{{topic.Summary}}</md-card-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="md-icon-button" ng-click="showTopic($event)">
+                        <md-icon>zoom_in</md-icon>
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
     </div>
 </md-content>
