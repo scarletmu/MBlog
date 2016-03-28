@@ -12,8 +12,9 @@ angular.module('ScarletBlog')
     Init();
     $scope.clickAlert = function () {
     };
-    $scope.showTopic = function(ev) {
+    $scope.showTopic = function(topicId,ev) {
       var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+      sessionStorage.setItem('topicId',topicId);
       $mdDialog.show({
           controller: DialogController,
           templateUrl: 'views/topicDialog.html',
@@ -23,7 +24,7 @@ angular.module('ScarletBlog')
           fullscreen: useFullScreen
         });
     };
-    function DialogController($scope, $mdDialog) {
+    function DialogController($scope, $mdDialog,Topic) {
       $scope.todos = [
         {
           face :'imgs/test.jpg',
@@ -61,6 +62,13 @@ angular.module('ScarletBlog')
           notes: " I'll be in your neighborhood doing errands"
         }
       ];
+      $scope.topicId = sessionStorage.getItem('topicId');
+      function Init(){
+        Topic.getDetail($scope.topicId).then(function(data){
+          $scope.topicData = data.data;
+        })
+      }
+      Init();
       $scope.hide = function() {
         $mdDialog.hide();
       };

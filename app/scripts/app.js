@@ -18,7 +18,10 @@ angular
       .state('/', {
         url: "/",
         templateUrl: "views/topic.html"
-      })
+      });
+      //.state('/',{
+      //
+      //})
   })
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')

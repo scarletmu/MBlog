@@ -14,11 +14,7 @@ router.get('/getTop',function(req,res,next){
 });
 
 router.get('/getDetail',function(req,res,next){
-  Topic.getDetail(req.query['TopicId']).then((data) => {res.json(data)}).catch((err) => {console.log(err);res.status(400).end()})
-});
-
-router.post('/addTopic',function(req,res,next){
-
+  Topic.getDetail(req.query['topicId']).then((data) => {console.log(data);res.json(data)}).catch((err) => {console.log(err);res.status(400).end()})
 });
 
 module.exports  = router;
