@@ -8,7 +8,10 @@ exports.add = function(args){
   return Topic.create(args);
 };
 
-exports.getList = function(page){
-  let st = (page-1)*5;
-  return Topic.find({},'',{skip:st,limit:5})
+exports.getList = function(select,page){
+  return Topic.find(select,'',page);
 };
+
+exports.getDetail = function(TopicId){
+  return Topic.find({_id:TopicId}).exec();
+}

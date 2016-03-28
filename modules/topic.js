@@ -5,6 +5,15 @@
 const Topic = require('../model/topic');
 
 exports.getList = function(page){
-  return Topic.getList(page);
+  let select = {},limit{skip:(page-1)*20,limit:5};
+  return Topic.getList(select,page);
 };
 
+exports.getTop = function(){
+  let select = {isTop:true};
+  return Topic.getList(select,{});
+};
+
+exports.getDetail = function(TopicId){
+  return Topic.getDetail(TopicId);
+}

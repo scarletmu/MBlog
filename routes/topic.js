@@ -9,4 +9,16 @@ router.get('/getList',function(req,res,next){
   Topic.getList(req.query['page']).then((data) => (res.json(data))).catch((err)=>{console.log(err);res.status(400).end();});
 });
 
+router.get('/getTop',function(req,res,next){
+  Topic.getTop().then((data) => {res.json(data)}).catch((err) => {console.log(err);res.status(400).end()})
+});
+
+router.get('/getDetail',function(req,res,next){
+  Topic.getDetail(req.query['TopicId']).then((data) => {res.json(data)}).catch((err) => {console.log(err);res.status(400).end()})
+});
+
+router.post('/addTopic',function(req,res,next){
+
+});
+
 module.exports  = router;
