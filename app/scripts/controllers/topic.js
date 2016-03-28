@@ -2,11 +2,14 @@
  * Created by Mu on 16/3/26.
  */
 angular.module('ScarletBlog')
-  .controller('TopicCtrl', function ($scope,$mdDialog,$mdMedia,Topic) {
+  .controller('TopicCtrl', function ($scope,$mdDialog,$mdMedia,Topic,Category) {
     function Init(){
       $scope.page = 1;
       Topic.getList($scope.page).then(function(data){
         $scope.topicList = data.data;
+        Category.getList().then(function(data){
+          $scope.categoryList = data.data;
+        })
       })
     }
     Init();
