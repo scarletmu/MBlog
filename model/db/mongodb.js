@@ -34,6 +34,7 @@ const CommentSchema = new mongoose.Schema({
 
 const CategorySchma = new mongoose.Schema({
   Name:{type:String},
+  Describe:{type:String},
   Icon:{type:String},
   Photo:{type:String}
 });

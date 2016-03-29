@@ -18,6 +18,10 @@ angular
       .state('/', {
         url: "/",
         templateUrl: "views/topic.html"
+      })
+      .state('/admin',{
+        url:'/admin',
+        templateUrl:'views/admin/index.html';
       });
       //.state('/',{
       //

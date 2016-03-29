@@ -3,18 +3,11 @@
         <md-card>
             <md-list>
                 <md-subheader class="md-no-sticky" style="background:gainsboro">文章分类</md-subheader>
-                <md-list-item class="md-2-line" ng-click="clickAlert()">
+                <md-list-item class="md-2-line" ng-click="clickAlert()" ng-repeat='category in categoryList'>
                     <!--<img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />-->
                     <div class="md-list-item-text">
-                        <h3>第一个分类</h3>
-                        <p>描述</p>
-                    </div>
-                </md-list-item>
-                <md-list-item class="md-2-line" ng-click="clickAlert()">
-                    <!--<img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />-->
-                    <div class="md-list-item-text">
-                        <h3>第二个分类</h3>
-                        <p>描述</p>
+                        <h3>{{category.Name}}</h3>
+                        <p>{{category.Describe}}</p>
                     </div>
                 </md-list-item>
             </md-list>

@@ -9,5 +9,5 @@ exports.add = function(args){
 };
 
 exports.getList = function(){
-  return Category.find().exec);
+  return Category.find().exec();
 };
