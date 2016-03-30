@@ -19,13 +19,11 @@ angular
         url: "/",
         templateUrl: "views/topic.html"
       })
-      .state('/admin',{
+      //管理路由
+      .state('admin',{
         url:'/admin',
-        templateUrl:'views/admin/index.html';
+        templateUrl:'views/admin/index.html'
       });
-      //.state('/',{
-      //
-      //})
   })
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')

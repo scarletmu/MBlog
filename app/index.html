@@ -41,14 +41,14 @@
                 <md-menu-item>
                     <md-button ng-click="">
                         <md-icon>phone</md-icon>
-                        Redial
+                        第一个玩意
                     </md-button>
                 </md-menu-item>
                 <md-menu-divider></md-menu-divider>
                 <md-menu-item>
                     <md-button ng-click="">
                         <md-icon>mail</md-icon>
-                        Check voicemail
+                        第二个玩意
                     </md-button>
                 </md-menu-item>
             </md-menu-content>
@@ -72,6 +72,12 @@
 <div class="container layout-padding">
     <div ui-view=""></div>
 </div>
+
+<div class="footer">
+    <div class="container">
+        <p> ScarletMu</p><p>后台管理</p>
+    </div>
+</div>
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -89,6 +95,7 @@
 <script src="scripts/service.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/topic.js"></script>
+<script src="scripts/controllers/admin.js"></script>
 <!-- endbuild -->
 </body>
 </html>
