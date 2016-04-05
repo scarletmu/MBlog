@@ -17,4 +17,8 @@ angular.module('ScarletBlog')
     this.getList = function(){
       return $http.get('/category/getList');
     }
-  });
+  })
+  .service('Auth',function($http){
+    this.checkLogin = function(){
+    };
+  });;

@@ -1,0 +1,15 @@
+<md-content ng-controller='LoginCtrl' layout-xs='row' layout="column">
+  <span flex></span>
+  <md-card flex>
+    <md-input-container >
+      <label>Name</label>
+      <md-icon>face</md-icon>
+      <input ng-model="user.name" type="text">
+    </md-input-container>
+    <md-input-container>
+      <md-icon>pets</md-icon>
+      <input ng-model="user.phone" type="text" placeholder="Phone Number">
+    </md-input-container>
+  </md-card>
+  <span flex></span>
+</md-content>

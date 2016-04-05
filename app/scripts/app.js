@@ -23,7 +23,11 @@ angular
       .state('admin',{
         url:'/admin',
         templateUrl:'views/admin/index.html'
-      });
+      })
+      .state('login',{
+        url:'/login',
+        templateUrl:'views/admin/login.html'
+      })
   })
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
