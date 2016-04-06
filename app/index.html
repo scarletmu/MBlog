@@ -24,7 +24,7 @@
 <![endif]-->
 
 <!-- Add your site or application content here -->
-<md-toolbar ng-controller="NavCtrl">
+<md-toolbar ng-controller="BarCtrl">
     <div class="md-toolbar-tools">
         <md-button class="md-icon-button" aria-label="Settings">
             <md-icon ng-click="toggleLeft()">menu</md-icon>
@@ -55,27 +55,30 @@
         </md-menu>
     </div>
 </md-toolbar>
+
 <md-sidenav
         class="md-sidenav-left"
         md-component-id="left"
         md-disable-backdrop
         md-whiteframe="5">
     <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">左侧导航栏</h1>
+        <h1 class="md-toolbar-tools">功能分类</h1>
     </md-toolbar>
     <md-content layout-padding>
         <p>
-            这玩意是测试的
+            <md-button ng-click='response()'></md-button>
         </p>
     </md-content>
 </md-sidenav>
+
 <div class="container layout-padding">
     <div ui-view=""></div>
 </div>
 
 <div class="footer">
-    <div class="container">
-        <p ng-click='admin()'>后台管理</p>
+    <div layout='row'>
+        <span flex='5'></span>
+        <p ng-click='admin()' flex>后台管理</p>
     </div>
 </div>
 <!-- build:js(.) scripts/vendor.js -->
@@ -87,6 +90,9 @@
 <script src="bower_components/angular-material/angular-material.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/showdown/dist/showdown.js"></script>
+<script src="bower_components/ng-showdown/dist/ng-showdown.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 

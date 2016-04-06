@@ -2,9 +2,26 @@
  * Created by Mu on 16/3/30.
  */
 angular.module('ScarletBlog')
-  .controller('LoginCtrl',function($scope){
-
+  .controller('LoginCtrl',function($scope,$state,User){
+    $scope.login = function(){
+      User.login($scope.username,$scope.password).then(function(data){
+        alert('成功登录');
+        $state.go('admin');
+      }).catch(function(err){
+        alert('登录失败');
+      });
+    };
   })
-  .controller('AdminCtrl',function($scope){
+  .controller('AdminCtrl',function($scope,$state,User){
+    function Init(){
 
+    };
+    User.checkLogin().then(function(data){
+      alert('no problem');
+      Init();
+    }).catch(function(err){
+      console.log(err);
+      alert('无授权');
+      $state.go('topic');
+    })
   });

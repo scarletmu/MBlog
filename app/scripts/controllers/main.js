@@ -3,18 +3,25 @@
  */
 angular
   .module('ScarletBlog')
-  .controller('AppCtrl',function($scope,Auth,$state){
+  .controller('AppCtrl',function($scope,User,$state){
     $scope.imagePath = 'imgs/test.jpg';
     $scope.admin = function(){
-      $state.go('login');
+      User.checkLogin().then(function(){
+        $state.go('admin');
+      }).catch(function(){
+        $state.go('login');
+      })
     };
+    $scope.response = function(){
+      alert('!');
+    }
   })
-  .controller('NavCtrl',function($scope,$mdSidenav){
+  .controller('BarCtrl',function($scope,$mdSidenav){
     $scope.toggleLeft = buildToggler('left');
     function buildToggler(navID) {
       return function() {
         $mdSidenav(navID)
           .toggle()
       }
-    }
-  });
+    };
+  })

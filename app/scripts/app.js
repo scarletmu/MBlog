@@ -6,18 +6,23 @@ angular
     'ngAnimate',
     'ngMaterial',
     'ngAria',
-    'ui.router'
+    'ui.router',
+    'ngSanitize',
+    'ng-showdown'
   ])
   .config(function($stateProvider, $urlRouterProvider){
     //
     // For any unmatched url, redirect to /state1
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("topic");
     //
     // Now set up the states
     $stateProvider
-      .state('/', {
-        url: "/",
+      .state('topic', {
+        url: "/topic",
         templateUrl: "views/topic.html"
+      })
+      .state('topic.detail',{
+        url:'/detail/'
       })
       //管理路由
       .state('admin',{

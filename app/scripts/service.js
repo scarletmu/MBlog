@@ -18,7 +18,11 @@ angular.module('ScarletBlog')
       return $http.get('/category/getList');
     }
   })
-  .service('Auth',function($http){
-    this.checkLogin = function(){
+  .service('User',function($http){
+    this.login = function(username,password){
+      return $http.post('/user/login',{data:{username:username,password:password}});
     };
-  });;
+    this.checkLogin = function(){
+      return $http.get('/user/checkLogin');
+    }
+  });

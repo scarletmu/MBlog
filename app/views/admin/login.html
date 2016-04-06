@@ -1,15 +1,17 @@
-<md-content ng-controller='LoginCtrl' layout-xs='row' layout="column">
-  <span flex></span>
-  <md-card flex>
-    <md-input-container >
-      <label>Name</label>
+<md-content ng-controller='LoginCtrl' layout="row">
+  <span flex='5'></span>
+  <md-card flex layout='column'>
+    <md-input-container flex>
+      <label>用户名</label>
       <md-icon>face</md-icon>
-      <input ng-model="user.name" type="text">
+      <input ng-model="username" type="text">
     </md-input-container>
-    <md-input-container>
+    <md-input-container flex>
+      <label>密码</label>
       <md-icon>pets</md-icon>
-      <input ng-model="user.phone" type="text" placeholder="Phone Number">
+      <input ng-model="password" type="text">
     </md-input-container>
+    <md-button ng-click='login()'>登录</md-button>
   </md-card>
-  <span flex></span>
+  <span flex='5'></span>
 </md-content>
