@@ -11,24 +11,31 @@ angular
     'ng-showdown'
   ])
   .config(function($stateProvider, $urlRouterProvider){
-    //
-    // For any unmatched url, redirect to /state1
     $urlRouterProvider.otherwise("topic");
-    //
-    // Now set up the states
     $stateProvider
+      //最高层路由
       .state('topic', {
         url: "/topic",
         templateUrl: "views/topic.html"
       })
-      .state('topic.detail',{
+      .state('detail',{
         url:'/detail/'
       })
+
       //管理路由
       .state('admin',{
         url:'/admin',
         templateUrl:'views/admin/index.html'
       })
+      .state('admin.topicList',{
+        url:'/topicList',
+        templateUrl:'views/admin/topicList.html'
+      })
+      .state('admin.newTopic',{
+        url:'/newTopic',
+        templateUrl:'views/admin/newTopic.html'
+      })
+      //登录路由
       .state('login',{
         url:'/login',
         templateUrl:'views/admin/login.html'

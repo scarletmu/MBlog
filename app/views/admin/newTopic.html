@@ -1,0 +1,13 @@
+<md-content layout-xs='column' layout='row' ng-controller="TopicManageCtrl">
+  <md-card flex layout='column' class='md-padding'>
+    <md-input-container flex=''>
+        <label>文章标题</label>
+        <input ng-model="topic.title">
+    </md-input-container>
+    <textarea rows='20' cols="60" ng-model='topic.content' flex></textarea>
+    <md-button ng-click='parse()'>预览</md-button>
+  </md-card>
+  <md-card flex class='md-padding'>
+    <p ng-bind-html="html"></p>
+  </md-card>
+</md-content>

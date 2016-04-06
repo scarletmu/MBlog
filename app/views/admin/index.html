@@ -1,9 +1,23 @@
 <md-content class="md-padding" layout-xs="column" layout="row" ng-controller="AdminCtrl">
-    <div flex-xs flex-gt-xs="20" layout="column">
+    <div hide-sm flex-gt-xs="15" layout="column">
         <md-card>
             <md-list>
                 <md-subheader class="md-no-sticky" style="background:gainsboro">后台管理</md-subheader>
+                <md-list-item class='md-2-line' hide-xs>
+                  <div class="md-list-item-text" layout="column" ng-click="goCategory('topicList')">
+                      <h3>文章管理</h3>
+                      <p>管理文章的</p>
+                  </div>
+                </md-list-item>
+                <md-list-item class='md-2-line' hide-xs>
+                  <div class="md-list-item-text" layout="column" ng-click="goCategory('newTopic')">
+                      <h3>新增文章</h3>
+                      <p>测试用暂且放这里</p>
+                  </div>
+                </md-list-item>
             </md-list>
         </md-card>
+    </div>
+    <div flex="" ui-view>
     </div>
 </md-content>
