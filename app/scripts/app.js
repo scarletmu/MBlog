@@ -19,7 +19,8 @@ angular
         templateUrl: "views/topic.html"
       })
       .state('detail',{
-        url:'/detail/'
+        url:'/detail/:topicId',
+        templateUrl:'views/topicDetail.html'
       })
 
       //管理路由

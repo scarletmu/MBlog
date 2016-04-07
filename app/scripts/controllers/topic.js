@@ -27,7 +27,7 @@ angular.module('ScarletBlog')
           fullscreen: useFullScreen
         });
     };
-    function DialogController($scope, $mdDialog,Topic) {
+    function DialogController($scope, $mdDialog,Topic,$state) {
       $scope.todos = [
         {
           face :'imgs/test.jpg',
@@ -70,13 +70,20 @@ angular.module('ScarletBlog')
         Topic.getDetail($scope.topicId).then(function(data){
           $scope.topicData = data.data;
         })
-      }
+      };
+
       Init();
+      //Dialog操作
       $scope.hide = function() {
         $mdDialog.hide();
       };
       $scope.cancel = function() {
         $mdDialog.cancel();
       };
+      //查看详情
+      $scope.goDetail = function(){
+        $mdDialog.hide();
+        $state.go('detail',{topicId:$scope.topicId})
+      }
     }
   });
