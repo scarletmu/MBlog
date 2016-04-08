@@ -1,18 +1,36 @@
 <md-content class="md-padding" layout-xs="column" layout="row" ng-controller="AdminCtrl">
-    <div hide-sm flex-gt-xs="15" layout="column">
+    <div hide-sm hide-xs flex-gt-xs="15" layout="column">
         <md-card>
             <md-list>
-                <md-subheader class="md-no-sticky" style="background:gainsboro">后台管理</md-subheader>
                 <md-list-item class='md-2-line' hide-xs>
+                  <md-icon class='md-avatar-icon'>description</md-icon>
                   <div class="md-list-item-text" layout="column" ng-click="goCategory('topicList')">
                       <h3>文章管理</h3>
-                      <p>管理文章的</p>
+                      <p>分类管理</p>
                   </div>
+                  <md-divider></md-divider>
                 </md-list-item>
-                <md-list-item class='md-2-line' hide-xs>
-                  <div class="md-list-item-text" layout="column" ng-click="goCategory('newTopic')">
-                      <h3>新增文章</h3>
-                      <p>测试用暂且放这里</p>
+                <md-list-item class='md-2-line'>
+                  <md-icon class='md-avatar-icon'>list</md-icon>
+                  <div class="md-list-item-text" layout="column" ng-click="goCategory('categoryList')">
+                      <h3>分类管理</h3>
+                      <p>管理分类</p>
+                  </div>
+                  <md-divider></md-divider>
+                </md-list-item>
+                <md-list-item class='md-2-line'>
+                  <md-icon class='md-avatar-icon'>speaker_notes</md-icon>
+                  <div class="md-list-item-text" layout="column" ng-click="goCategory('commentList')">
+                      <h3>评论管理</h3>
+                      <p>管理评论</p>
+                  </div>
+                  <md-divider></md-divider>
+                </md-list-item>
+                <md-list-item class='md-2-line'>
+                  <md-icon class='md-avatar-icon'>settings</md-icon>
+                  <div class="md-list-item-text" layout="column" ng-click="goCategory('commentList')">
+                      <h3>设置</h3>
+                      <p>系统设置</p>
                   </div>
                 </md-list-item>
             </md-list>
@@ -21,3 +39,24 @@
     <div flex="" ui-view>
     </div>
 </md-content>
+
+<div hide-gt-lg style="position:fixed;right:15px;bottom:15px;">
+  <md-fab-speed-dial md-direction="left" class="md-fling">
+    <md-fab-trigger>
+      <md-button aria-label="menu" class="md-fab md-warn">
+        <md-icon>view_list</md-icon>
+      </md-button>
+    </md-fab-trigger>
+    <md-fab-actions>
+      <md-button aria-label="Twitter" class="md-fab md-raised md-mini">
+        <md-icon md-svg-src="img/icons/twitter.svg" aria-label="Twitter"></md-icon>
+      </md-button>
+      <md-button aria-label="Facebook" class="md-fab md-raised md-mini">
+        <md-icon md-svg-src="img/icons/facebook.svg" aria-label="Facebook"></md-icon>
+      </md-button>
+      <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini">
+        <md-icon md-svg-src="img/icons/hangout.svg" aria-label="Google Hangout"></md-icon>
+      </md-button>
+    </md-fab-actions>
+  </md-fab-speed-dial>
+</div>

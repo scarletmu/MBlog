@@ -1,10 +1,24 @@
 <md-content layout-xs='column' layout='row' ng-controller="TopicManageCtrl">
   <md-card flex layout='column' class='md-padding'>
+    <div flex layout='row'>
+      <md-input-container flex=''>
+          <label>文章标题</label>
+          <input ng-model="topic.Title">
+      </md-input-container>
+      <md-input-container flex>
+        <label>分类</label>
+        <md-select ng-model="topic.Category">
+          <md-option ng-repeat="category in categorys" value="{{category._id}}">
+            {{state.abbrev}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
     <md-input-container flex=''>
-        <label>文章标题</label>
-        <input ng-model="topic.title">
+        <label>文章简介</label>
+        <input ng-model="topic.Summary">
     </md-input-container>
-    <textarea rows='20' cols="60" ng-model='topic.content' flex></textarea>
+    <textarea rows='20' cols="60" ng-model='topic.Content' flex></textarea>
     <md-button ng-click='parse()'>预览</md-button>
   </md-card>
   <md-card flex class='md-padding'>

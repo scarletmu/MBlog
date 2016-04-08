@@ -31,6 +31,14 @@ angular
         url:'/topicList',
         templateUrl:'views/admin/topicList.html'
       })
+      .state('admin.categoryList',{
+        url:'/categoryList',
+        templateUrl:'views/admin/categoryList.html'
+      })
+      .state('admin.commentList',{
+        url:'/commentList',
+        templateUrl:'views/admin/commentList.html'
+      })
       .state('admin.newTopic',{
         url:'/newTopic',
         templateUrl:'views/admin/newTopic.html'

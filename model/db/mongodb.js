@@ -20,7 +20,7 @@ const TopicSchema = new mongoose.Schema({
   ViewNum: {type: Number,default:0},
   CommentNum:{type: Number,default:0},
   LikeNum:{type: Number,default:0},
-  Draft: {type: Boolean},
+  Top: {type: Boolean,default:false},
   Display: {type: Boolean, default: true},
   CreatedTime:{type:Date,default:new Date()}
 });

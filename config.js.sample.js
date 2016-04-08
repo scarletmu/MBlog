@@ -10,5 +10,18 @@ module.exports = {
     host: 'localhost',
     port: 6379,
     database: 0
+  },
+  upyun: {
+    formSecret: '',
+    bucket: '',
+    expiration: 60*10,
+    callback: {
+      host: '',
+      path: ''
+    }
+  },
+  qiniu:{
+    scope:'',
+    deadline:'',
   }
 };
