@@ -1,0 +1,41 @@
+<md-dialog ng-controller="CategoryManageCtrl">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>增加分类</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="close()">
+                <md-icon aria-label="Close dialog">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div layout='column' class="md-padding">
+            <md-input-container>
+                <label>分类名</label><input ng-model='args.amount' ng-disabled="createSuccess == true">
+            </md-input-container>
+            <md-input-container>
+                <label>描述</label><input ng-model='args.component' ng-disabled="createSuccess == true">
+            </md-input-container>
+            <md-input-container>
+                <label>使用图标</label><input ng-model='args.component' ng-disabled="createSuccess == true">
+            </md-input-container>
+            <span>成功保存或更新订单后方可上传图片</span>
+            <md-input-container>
+                <md-button ngf-select="uploadImage($file)" multiple class="md-raised"
+                           accept="image/*" ngf-max-size="2MB" ng-disabled="createSuccess == false">
+                    上传图片</md-button>
+            </md-input-container>
+        </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="saveDoc()" style="margin-right:20px;" class="md-raised md-primary" ng-disabled="createSuccess == true" ng-show="!isUpdate">
+            保存
+        </md-button>
+    </div>
+</md-dialog>
+<style>
+    .md-whiteframe-z1 {
+        background:white;
+    }
+</style>

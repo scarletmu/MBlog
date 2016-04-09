@@ -11,7 +11,10 @@ angular.module('ScarletBlog')
     };
     this.getTop = function(){
       return $http.get('/topic/getTop');
-    }
+    };
+    this.addTopic = function(data){
+      return $http.post('/topic/addTopic',{data:data})
+    };
   })
   .service('Category',function($http){
     this.getList = function(){

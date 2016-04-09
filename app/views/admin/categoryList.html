@@ -1,11 +1,28 @@
-<md-card>
-  <md-list>
-      <md-subheader class="md-no-sticky" style="background:gainsboro">文章列表</md-subheader>
-      <md-list-item class='md-2-line'>
-        <div class="md-list-item-text" layout="column" ng-click='addNew()'>
-            <h3>文章管理</h3>
-            <p>管理文章的</p>
+<md-card layout='column' ng-controller="CategoryListCtrl">
+    <md-toolbar class="md-menu-toolbar" flex>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Settings" ng-click="addNewCategory()">
+                <md-icon>mode_edit</md-icon>
+            </md-button>
+            <h2>
+                <span>分类管理</span>
+            </h2>
+            <span flex></span>
         </div>
-      </md-list-item>
-  </md-list>
-<md-card>
+    </md-toolbar>
+    <md-content class="page-container" flex>
+        <md-list>
+            <md-list-item class='md-2-line'>
+                <div class="md-list-item-text" layout="column" ng-click='addNew()'>
+                    <h3>第一个分类</h3>
+                    <p>管理文章的</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+    <div flex layout='row'>
+        <span flex-gt-lg='80' flex-xs='60'></span>
+        <md-button flex><md-icon>keyboard_arrow_left</md-icon></md-button>
+        <md-button flex><md-icon>keyboard_arrow_right</md-icon></md-button>
+    </div>
+    <md-card>

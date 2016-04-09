@@ -1,7 +1,7 @@
-<md-card layout='column'>
+<md-card layout='column' ng-controller="TopicListCtrl">
   <md-toolbar class="md-menu-toolbar" flex>
       <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Settings">
+        <md-button class="md-icon-button" aria-label="Settings" ng-click='addNewTopic()'>
           <md-icon>mode_edit</md-icon>
         </md-button>
         <h2>
@@ -13,7 +13,7 @@
   <md-content class="page-container" flex>
     <md-list>
         <md-list-item class='md-2-line'>
-          <div class="md-list-item-text" layout="column" ng-click='addNew()'>
+          <div class="md-list-item-text" layout="column">
               <h3>文章管理</h3>
               <p>管理文章的</p>
           </div>

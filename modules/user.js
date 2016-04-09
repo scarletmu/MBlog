@@ -12,10 +12,10 @@ exports.login = function(username,password){
         return userInfo;
       }else{
         return Promise.reject('Wrong Password');
-      };
+      }
     }else{
       return Promise.reject('No Such User');
-    };
+    }
   });
 };
 

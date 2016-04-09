@@ -1,27 +1,40 @@
-<md-content layout-xs='column' layout='row' ng-controller="TopicManageCtrl">
-  <md-card flex layout='column' class='md-padding'>
-    <div flex layout='row'>
+<md-dialog class="md-dialog-fullscreen" aria-label="新增文章" ng-controller="TopicManageCtrl" style="width:100%;height:100%;">
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>新增文章</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="close()">
+          <md-icon aria-label="Close dialog">close</md-icon>
+        </md-button>
+      </div>
+  </md-toolbar>
+  <md-dialog-content layout='row'>
+    <md-card flex layout='column' class='md-padding'>
+      <div flex layout='row'>
+        <md-input-container flex=''>
+            <label>文章标题</label>
+            <input ng-model="topic.Title">
+        </md-input-container>
+        <md-input-container flex>
+          <label>分类</label>
+          <input ng-model="topic.Category">
+          <!--<md-select ng-model="topic.Category">-->
+            <!--<md-option ng-repeat="category in categories" value="{{category._id}}">-->
+            <!--</md-option>-->
+          <!--</md-select>-->
+        </md-input-container>
+      </div>
       <md-input-container flex=''>
-          <label>文章标题</label>
-          <input ng-model="topic.Title">
+          <label>文章简介</label>
+          <input ng-model="topic.Summary">
       </md-input-container>
-      <md-input-container flex>
-        <label>分类</label>
-        <md-select ng-model="topic.Category">
-          <md-option ng-repeat="category in categorys" value="{{category._id}}">
-            {{state.abbrev}}
-          </md-option>
-        </md-select>
-      </md-input-container>
-    </div>
-    <md-input-container flex=''>
-        <label>文章简介</label>
-        <input ng-model="topic.Summary">
-    </md-input-container>
-    <textarea rows='20' cols="60" ng-model='topic.Content' flex></textarea>
-    <md-button ng-click='parse()'>预览</md-button>
-  </md-card>
-  <md-card flex class='md-padding'>
-    <p ng-bind-html="html"></p>
-  </md-card>
-</md-content>
+      <textarea rows='20' cols="60" ng-model='topic.content' flex></textarea>
+      <md-button ng-click='parse()'>预览</md-button>
+    </md-card>
+    <md-card flex class='md-padding' ng-bind-html="html" style="overflow: auto">
+    </md-card>
+  </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="save()" class="md-primary">保存</md-button>
+    </md-dialog-actions>
+</md-dialog>
