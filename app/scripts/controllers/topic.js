@@ -16,7 +16,6 @@ angular.module('ScarletBlog')
     $scope.clickAlert = function () {
     };
     $scope.showTopic = function(topicId,ev) {
-      var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
       sessionStorage.setItem('topicId',topicId);
       $mdDialog.show({
           controller: DialogController,
@@ -24,53 +23,23 @@ angular.module('ScarletBlog')
           parent: angular.element(document.body),
           targetEvent: ev,
           clickOutsideToClose:false,
-          fullscreen: useFullScreen
+          fullscreen: true
         });
     };
-    function DialogController($scope, $mdDialog,Topic,$state,$showdown) {
-      $scope.todos = [
-        {
-          face :'imgs/test.jpg',
-          what: 'Brunch this weekend?',
-          who: 'Min Li Chan',
-          when: '3:08PM',
-          notes: " I'll be in your neighborhood doing errands"
-        },
-        {
-          face : 'imgs/test.jpg',
-          what: 'Brunch this weekend?',
-          who: 'Min Li Chan',
-          when: '3:08PM',
-          notes: " I'll be in your neighborhood doing errands"
-        },
-        {
-          face : 'imgs/test.jpg',
-          what: 'Brunch this weekend?',
-          who: 'Min Li Chan',
-          when: '3:08PM',
-          notes: " I'll be in your neighborhood doing errands"
-        },
-        {
-          face : 'imgs/test.jpg',
-          what: 'Brunch this weekend?',
-          who: 'Min Li Chan',
-          when: '3:08PM',
-          notes: " I'll be in your neighborhood doing errands"
-        },
-        {
-          face : 'imgs/test.jpg',
-          what: 'Brunch this weekend?',
-          who: 'Min Li Chan',
-          when: '3:08PM',
-          notes: " I'll be in your neighborhood doing errands"
-        }
-      ];
+    function DialogController($scope, $mdDialog,Topic,$state,$showdown,Comment) {
       $scope.topicId = sessionStorage.getItem('topicId');
       function Init(){
         Topic.getDetail($scope.topicId).then(function(data){
           data.data.html = $showdown.makeHtml(data.data.Content);
           $scope.topicData = data.data;
+          return true;
         })
+        .then(function(){
+          return Comment.getListByTopic($scope.topicId);
+        })
+        .then(function(comment){
+          $scope.commentData = comment.data;
+        });
       }
 
       Init();

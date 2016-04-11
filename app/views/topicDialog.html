@@ -1,8 +1,8 @@
-<md-dialog style="min-width:80%">
+<md-dialog style="width:100%;height:100%;">
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>文章详情</h2>
+                <h2>文章粗情</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
                     <md-icon>close</md-icon>
@@ -19,14 +19,13 @@
             <div class="comment" flex layout="row">
                 <md-list>
                     <md-subheader class="md-no-sticky">文章评论</md-subheader>
-                    <md-list-item class="md-3-line" ng-repeat="item in todos">
-                        <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+                    <md-list-item class="md-3-line" ng-repeat="comment in commentData">
+                        <md-icon class="md-avatar-icon">person</md-icon>
                         <div class="md-list-item-text" layout="column">
-                            <h3>{{ item.who }}</h3>
-                            <h4>{{ item.what }}</h4>
-                            <p>{{ item.notes }}</p>
+                            <h3>来自:{{ comment.authorId }}</h3>
+                            <h4>内容:{{ comment.Content }}</h4>
+                            <p>发布时间:{{ comment.CreatedTime }}</p>
                         </div>
-                    </md-list-item>
                 </md-list>
             </div>
         </md-dialog-content>

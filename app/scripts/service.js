@@ -33,4 +33,12 @@ angular.module('ScarletBlog')
     this.addCategory = function(args){
       return $http.post('/admin/addCategory',args);
     }
+  })
+  .service('Comment',function($http){
+    this.addComment = function(args){
+      return $http.post('/comment/addComment',args);
+    };
+    this.getListByTopic = function(id){
+      return $http.get('/comment/getListByTopic?id='+id);
+    }
   });

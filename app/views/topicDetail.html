@@ -1,3 +1,38 @@
-<md-content class="md-padding" ng-controller='DetailCtrl'>
-  <h1>哈哈哈</h1>
-</md-content>
+<div ng-controller='DetailCtrl' layout="column">
+    <div class="md-padding" flex>
+      <h2>{{topicData.Title}}</h2>
+      <span class="md-subhead">2016/3/26 <md-icon>visibility</md-icon> {{topicData.ViewNum}} <md-icon>comment</md-icon> {{topicData.CommentNum}}</span>
+      <p ng-bind-html="topicData.html"></p>
+    </div>
+  <md-card layout="column" class="md-padding">
+    <div class="comment" flex layout="row">
+      <md-list>
+        <md-subheader class="md-no-sticky">文章评论</md-subheader>
+        <md-list-item class="md-3-line" ng-repeat="comment in commentData">
+          <!--<img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />-->
+          <md-icon class="md-avatar-icon">person</md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>来自:{{ comment.authorId }}</h3>
+            <h4>内容:{{ comment.Content }}</h4>
+            <p>发布时间:{{ comment.CreatedTime }}</p>
+          </div>
+        </md-list-item>
+      </md-list>
+    </div>
+  </md-card>
+  <md-card class="md-padding">
+    <md-subheader class="md-no-sticky">新增评论</md-subheader>
+    <md-input-container md-no-float class="md-block">
+      <label>评论内容</label>
+      <md-icon>message</md-icon>
+      <input ng-model="comment.Content" type="text">
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block">
+      <label>名字</label>
+      <md-icon>person</md-icon>
+      <input ng-model="comment.authorId" type="text">
+    </md-input-container>
+    <span flex=""></span>
+    <md-button ng-click="saveComment()">提交</md-button>
+  </md-card>
+</div>

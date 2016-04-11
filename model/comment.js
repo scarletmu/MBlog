@@ -16,3 +16,7 @@ exports.getList = function(page){
   let st = (page-1)*20;
   return Comment.find({},'',{skip:st,limit:20}).exec();
 };
+
+exports.getListByTopic = function(id){
+  return Comment.find({topicId:id}).exec();
+};

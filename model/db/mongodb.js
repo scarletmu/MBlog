@@ -27,10 +27,10 @@ const TopicSchema = new mongoose.Schema({
 });
 
 const CommentSchema = new mongoose.Schema({
-  authorId:{type:mongoose.Schema.ObjectId},
+  authorId:{type:String},
   topicId:{type:mongoose.Schema.ObjectId},
   Content:{type:String},
-  CreatedTime:{type:Date}
+  CreatedTime:{type:Date,default:new Date()}
 });
 
 const CategorySchma = new mongoose.Schema({
