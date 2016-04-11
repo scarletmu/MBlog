@@ -22,6 +22,7 @@ const TopicSchema = new mongoose.Schema({
   LikeNum:{type: Number,default:0},
   Top: {type: Boolean,default:false},
   Display: {type: Boolean, default: true},
+  Photo:{type:Array,default:[]},
   CreatedTime:{type:Date,default:new Date()}
 });
 

@@ -12,11 +12,14 @@
     </md-toolbar>
   <md-content class="page-container" flex>
     <md-list>
-        <md-list-item class='md-2-line'>
+        <md-list-item class='md-2-line' ng-repeat="topic in topicList">
           <div class="md-list-item-text" layout="column">
-              <h3>文章管理</h3>
-              <p>管理文章的</p>
+              <h3>{{topic.Title}}</h3>
+              <p>{{topic.Summary}}</p>
           </div>
+        <md-button class="md-secondary md-icon-button">
+            <md-icon>close</md-icon>
+        </md-button>
         </md-list-item>
     </md-list>
   </md-content>

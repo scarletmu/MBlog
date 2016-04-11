@@ -12,9 +12,6 @@ angular.module('ScarletBlog')
     this.getTop = function(){
       return $http.get('/topic/getTop');
     };
-    this.addTopic = function(data){
-      return $http.post('/topic/addTopic',{data:data})
-    };
   })
   .service('Category',function($http){
     this.getList = function(){
@@ -27,5 +24,13 @@ angular.module('ScarletBlog')
     };
     this.checkLogin = function(){
       return $http.get('/user/checkLogin');
+    }
+  })
+  .service('Admin',function($http){
+    this.addTopic = function(args){
+      return $http.post('/admin/addTopic',args);
+    };
+    this.addCategory = function(args){
+      return $http.post('/admin/addCategory',args);
     }
   });

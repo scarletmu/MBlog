@@ -17,18 +17,18 @@
         </md-input-container>
         <md-input-container flex>
           <label>分类</label>
-          <input ng-model="topic.Category">
-          <!--<md-select ng-model="topic.Category">-->
-            <!--<md-option ng-repeat="category in categories" value="{{category._id}}">-->
-            <!--</md-option>-->
-          <!--</md-select>-->
+          <md-select ng-model="topic.Category">
+            <md-option ng-repeat="category in categories" value="{{category._id}}">
+                {{category.Name}}
+            </md-option>
+          </md-select>
         </md-input-container>
       </div>
       <md-input-container flex=''>
           <label>文章简介</label>
           <input ng-model="topic.Summary">
       </md-input-container>
-      <textarea rows='20' cols="60" ng-model='topic.content' flex></textarea>
+      <textarea rows='20' cols="60" ng-model='topic.Content' flex></textarea>
       <md-button ng-click='parse()'>预览</md-button>
     </md-card>
     <md-card flex class='md-padding' ng-bind-html="html" style="overflow: auto">

@@ -12,11 +12,14 @@
     </md-toolbar>
     <md-content class="page-container" flex>
         <md-list>
-            <md-list-item class='md-2-line'>
+            <md-list-item class='md-2-line' ng-repeat="category in categoryList">
                 <div class="md-list-item-text" layout="column" ng-click='addNew()'>
-                    <h3>第一个分类</h3>
-                    <p>管理文章的</p>
+                    <h3>{{category.Name}}</h3>
+                    <p>{{category.Describe}}</p>
                 </div>
+                <md-button class="md-secondary md-icon-button">
+                    <md-icon>close</md-icon>
+                </md-button>
             </md-list-item>
         </md-list>
     </md-content>
