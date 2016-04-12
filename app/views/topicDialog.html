@@ -15,19 +15,6 @@
                 <span class="md-subhead">2016/3/26 <md-icon>visibility</md-icon> {{topicData.ViewNum}} <md-icon>comment</md-icon> {{topicData.CommentNum}}</span>
                 <p ng-bind-html="topicData.html"></p>
             </div>
-            <br><br><br>
-            <div class="comment" flex layout="row">
-                <md-list>
-                    <md-subheader class="md-no-sticky">文章评论</md-subheader>
-                    <md-list-item class="md-3-line" ng-repeat="comment in commentData">
-                        <md-icon class="md-avatar-icon">person</md-icon>
-                        <div class="md-list-item-text" layout="column">
-                            <h3>来自:{{ comment.authorId }}</h3>
-                            <h4>内容:{{ comment.Content }}</h4>
-                            <p>发布时间:{{ comment.CreatedTime }}</p>
-                        </div>
-                </md-list>
-            </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
             <md-button target="_blank" md-autofocus ng-click='goDetail()'>

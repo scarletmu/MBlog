@@ -9,6 +9,10 @@ exports.addTopic = function(args){
   return Topic.create(args);
 };
 
+exports.editTopic = function(id,args){
+  return Topic.update({_id:id},{$set:args});
+};
+
 exports.getList = function(select,page){
   return Topic.find(select,'',page);
 };

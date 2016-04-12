@@ -13,13 +13,13 @@
   <md-content class="page-container" flex>
     <md-list>
         <md-list-item class='md-2-line' ng-repeat="topic in topicList">
+          <md-icon class="md-avatar-icon">local_offer</md-icon>
           <div class="md-list-item-text" layout="column">
               <h3>{{topic.Title}}</h3>
               <p>{{topic.Summary}}</p>
           </div>
-        <md-button class="md-secondary md-icon-button">
-            <md-icon>close</md-icon>
-        </md-button>
+        <md-icon ng-click="EditTopic(topic._id)">edit</md-icon>
+        <md-icon>close</md-icon>
         </md-list-item>
     </md-list>
   </md-content>

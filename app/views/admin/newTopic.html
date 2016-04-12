@@ -8,33 +8,47 @@
         </md-button>
       </div>
   </md-toolbar>
-  <md-dialog-content layout='row'>
-    <md-card flex layout='column' class='md-padding'>
-      <div flex layout='row'>
-        <md-input-container flex=''>
-            <label>文章标题</label>
-            <input ng-model="topic.Title">
-        </md-input-container>
-        <md-input-container flex>
-          <label>分类</label>
-          <md-select ng-model="topic.Category">
-            <md-option ng-repeat="category in categories" value="{{category._id}}">
-                {{category.Name}}
-            </md-option>
-          </md-select>
-        </md-input-container>
-      </div>
-      <md-input-container flex=''>
-          <label>文章简介</label>
-          <input ng-model="topic.Summary">
-      </md-input-container>
-      <textarea rows='20' cols="60" ng-model='topic.Content' flex></textarea>
-      <md-button ng-click='parse()'>预览</md-button>
-    </md-card>
-    <md-card flex class='md-padding' ng-bind-html="html" style="overflow: auto">
-    </md-card>
+  <md-dialog-content layout="column">
+    <div layout="row">
+        <md-card flex layout='column' class='md-padding'>
+            <div flex layout='row'>
+                <md-input-container flex=''>
+                    <label>文章标题</label>
+                    <input ng-model="topic.Title">
+                </md-input-container>
+                <md-input-container flex>
+                    <label>分类</label>
+                    <md-select ng-model="topic.Category">
+                        <md-option ng-repeat="category in categories" value="{{category._id}}">
+                            {{category.Name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex=''>
+                    <label>文章简介</label>
+                    <input ng-model="topic.Summary">
+                </md-input-container>
+                <md-input-container>
+                    <md-button ngf-select="uploadImage($file)" multiple class="md-raised"
+                               accept="image/*" ngf-max-size="2MB" ng-disabled="createSuccess == false">
+                        上传图片</md-button>
+                </md-input-container>
+            </div>
+            <textarea rows='20' cols="60" ng-model='topic.Content' flex ng-keyup="parse()"></textarea>
+        </md-card>
+        <md-card flex class='md-padding preview' ng-bind-html="html" style="overflow: auto">
+        </md-card>
+    </div>
+    <div>
+        <md-card>
+            上传的图片地址{{images}}
+        </md-card>
+    </div>
   </md-dialog-content>
     <md-dialog-actions>
-        <md-button ng-click="save()" class="md-primary">保存</md-button>
+        <md-button ng-click="save()" ng-show='!isUpdate' class="md-primary">保存</md-button>
+        <md-button ng-click="update()" ng-show='isUpdate' class="md-primary">更新</md-button>
     </md-dialog-actions>
 </md-dialog>

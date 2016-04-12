@@ -9,6 +9,15 @@ exports.getList = function(page){
   return Topic.getList(select,limit);
 };
 
+exports.editTopic = function(id,args){
+  return Topic.editTopic(id,args);
+};
+
+exports.getListByCategory = function(id){
+  let select = {Category:id};
+  return Topic.getList(select,{})
+};
+
 exports.getTop = function(){
   let select = {isTop:true};
   return Topic.getList(select,{});

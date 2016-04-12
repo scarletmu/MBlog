@@ -12,6 +12,13 @@ angular.module('ScarletBlog')
           fullscreen:true
       })
     };
+    $scope.EditTopic = function(id){
+      sessionStorage.setItem('editTag',id);
+      $mdDialog.show({
+        templateUrl:'../../views/admin/newTopic.html',
+        fullscreen:true
+      })
+    };
   })
   .controller('CategoryListCtrl',function($scope,$state,$mdDialog,Category){
     Category.getList().then(function(data){
@@ -23,4 +30,10 @@ angular.module('ScarletBlog')
         fullscreen:true
       })
     };
+  })
+  .controller('CommentListCtrl',function($scope,Comment){
+    $scope.page = 1;
+    Comment.getList($scope.page).then(function(data){
+      $scope.commentList = data.data;
+    });
   });

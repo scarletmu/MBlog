@@ -23,5 +23,5 @@ angular
         $mdSidenav(navID)
           .toggle()
       }
-    };
+    }
   })

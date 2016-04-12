@@ -13,6 +13,7 @@
     <md-content class="page-container" flex>
         <md-list>
             <md-list-item class='md-2-line' ng-repeat="category in categoryList">
+                <md-icon class="md-avatar-icon">{{category.Icon}}</md-icon>
                 <div class="md-list-item-text" layout="column" ng-click='addNew()'>
                     <h3>{{category.Name}}</h3>
                     <p>{{category.Describe}}</p>

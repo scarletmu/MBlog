@@ -11,3 +11,7 @@ exports.add = function(args){
 exports.getListByTopic = function(id){
   return Comment.getListByTopic(id);
 };
+
+exports.getList = function(page){
+  return Comment.getList(page);
+};

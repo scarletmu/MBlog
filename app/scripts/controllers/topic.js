@@ -2,19 +2,19 @@
  * Created by Mu on 16/3/26.
  */
 angular.module('ScarletBlog')
-  .controller('TopicCtrl', function ($scope,$mdDialog,$mdMedia,Topic,Category) {
+  .controller('TopicCtrl', function ($scope,$q,$mdDialog,$mdMedia,Topic,Category) {
     function Init(){
       $scope.page = 1;
-      Topic.getList($scope.page).then(function(data){
-        $scope.topicList = data.data;
-        Category.getList().then(function(data){
-          $scope.categoryList = data.data;
-        })
-      })
+      $scope.isSelect = false;
+      $q.all([
+        Topic.getList($scope.page),
+        Category.getList()
+      ]).then(function(data){
+        $scope.topicList = data[0].data;
+        $scope.categoryList = data[1].data;
+      });
     }
     Init();
-    $scope.clickAlert = function () {
-    };
     $scope.showTopic = function(topicId,ev) {
       sessionStorage.setItem('topicId',topicId);
       $mdDialog.show({
@@ -26,20 +26,20 @@ angular.module('ScarletBlog')
           fullscreen: true
         });
     };
+
+    $scope.selectCategory = function(id){
+      $scope.isSelect = true;
+      Topic.getListByCategory(id).then(function(data){
+        $scope.topicList = data.data;
+      })
+    };
     function DialogController($scope, $mdDialog,Topic,$state,$showdown,Comment) {
       $scope.topicId = sessionStorage.getItem('topicId');
       function Init(){
         Topic.getDetail($scope.topicId).then(function(data){
           data.data.html = $showdown.makeHtml(data.data.Content);
           $scope.topicData = data.data;
-          return true;
         })
-        .then(function(){
-          return Comment.getListByTopic($scope.topicId);
-        })
-        .then(function(comment){
-          $scope.commentData = comment.data;
-        });
       }
 
       Init();

@@ -17,5 +17,8 @@ router.get('/getDetail',function(req,res,next){
   Topic.getDetail(req.query['topicId']).then((data) => {console.log(data);res.json(data)}).catch((err) => {console.log(err);res.status(400).end()})
 });
 
+router.get('/getListByCategory',function(req,res,next){
+  Topic.getListByCategory(req.query['id']).then((data) => {res.json(data)}).catch((err) => {console.log(err);res.status(400).end()})
+});
 
 module.exports  = router;

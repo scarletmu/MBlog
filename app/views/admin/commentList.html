@@ -1,4 +1,4 @@
-<md-card layout='column'>
+<md-card layout='column' ng-controller="CommentListCtrl">
     <md-toolbar class="md-menu-toolbar" flex>
         <div class="md-toolbar-tools">
             <md-button class="md-icon-button" aria-label="Settings">
@@ -12,11 +12,16 @@
     </md-toolbar>
     <md-content class="page-container" flex>
         <md-list>
-            <md-list-item class='md-2-line'>
+            <md-list-item class='md-3-line' ng-repeat="comment in commentList" ng-click=''>
+                <md-icon class="md-avatar-icon">speaker_notes</md-icon>
                 <div class="md-list-item-text" layout="column">
-                    <h3>评论01</h3>
-                    <p>测试用</p>
+                    <h3>来自:{{ comment.authorId }}</h3>
+                    <h4>内容:{{ comment.Content }}</h4>
+                    <p>发布时间:{{ comment.CreatedTime }}</p>
                 </div>
+                <md-button class="md-secondary md-icon-button">
+                    <md-icon>close</md-icon>
+                </md-button>
             </md-list-item>
         </md-list>
     </md-content>

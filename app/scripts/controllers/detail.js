@@ -1,19 +1,16 @@
-angular.module('ScarletBlog').controller('DetailCtrl',function($scope,$stateParams,$showdown,Topic,Comment){
+angular.module('ScarletBlog').controller('DetailCtrl',function($scope,$q,$stateParams,$showdown,Topic,Comment){
   $scope.topicId = $stateParams.topicId;
   $scope.comment = {topicId:$scope.topicId};
   function Init(){
-    Topic.getDetail($scope.topicId)
-      .then(function(data){
-        data.data.html = $showdown.makeHtml(data.data.Content);
-        $scope.topicData = data.data;
-        return true;
-      })
-      .then(function(){
-        return Comment.getListByTopic($scope.topicId);
-      })
-      .then(function(comment){
-        $scope.commentData = comment.data;
-      });
+    $q.all([
+      Topic.getDetail($scope.topicId),
+      Comment.getListByTopic($scope.topicId)
+    ]).then(function(data){
+      //0为文章,1为评论
+      data[0].data.html = $showdown.makeHtml(data[0].data.Content);
+      $scope.topicData = data[0].data;
+      $scope.commentData = data[1].data;
+    });
   }
   Init();
   $scope.saveComment = function(){

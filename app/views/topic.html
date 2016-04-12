@@ -3,8 +3,8 @@
         <md-card>
             <md-list>
                 <md-subheader class="md-no-sticky" style="background:gainsboro">文章分类</md-subheader>
-                <md-list-item class="md-2-line" ng-click="clickAlert()" ng-repeat='category in categoryList'>
-                    <!--<img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />-->
+                <md-list-item class="md-2-line" ng-click="selectCategory(category._id)" ng-repeat='category in categoryList'>
+                    <md-icon class="md-avatar-icon">{{category.Icon}}</md-icon>
                     <div class="md-list-item-text">
                         <h3>{{category.Name}}</h3>
                         <p>{{category.Describe}}</p>
@@ -14,7 +14,7 @@
         </md-card>
     </div>
     <div flex-xs flex-gt-xs="75" layout-gt-md="row" layout="column">
-        <div flex-xs flex-gt-xs="50" layout="column">
+        <div flex-xs flex-gt-xs="50" layout="column" ng-hide="isSelect">
             <md-toolbar class="md-menu-toolbar">
                 <div class="md-toolbar-tools">
                     <h2>
@@ -79,14 +79,14 @@
       </md-button>
     </md-fab-trigger>
     <md-fab-actions>
-      <md-button aria-label="Twitter" class="md-fab md-raised md-mini">
-        <md-icon md-svg-src="img/icons/twitter.svg" aria-label="Twitter"></md-icon>
+      <md-button class="md-fab md-raised md-mini">
+        <md-icon aria-label="Twitter"></md-icon>
       </md-button>
-      <md-button aria-label="Facebook" class="md-fab md-raised md-mini">
-        <md-icon md-svg-src="img/icons/facebook.svg" aria-label="Facebook"></md-icon>
+      <md-button class="md-fab md-raised md-mini">
+        <md-icon aria-label="Facebook"></md-icon>
       </md-button>
-      <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini">
-        <md-icon md-svg-src="img/icons/hangout.svg" aria-label="Google Hangout"></md-icon>
+      <md-button class="md-fab md-raised md-mini">
+        <md-icon aria-label="Google Hangout"></md-icon>
       </md-button>
     </md-fab-actions>
   </md-fab-speed-dial>

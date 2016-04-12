@@ -8,7 +8,8 @@ angular
     'ngAria',
     'ui.router',
     'ngSanitize',
-    'ng-showdown'
+    'ng-showdown',
+    'ngFileUpload'
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise("topic");
