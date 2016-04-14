@@ -42,16 +42,16 @@
             </md-button>
             <md-menu-content width="4">
                 <md-menu-item>
-                    <md-button ng-click="">
-                        <md-icon>phone</md-icon>
-                        第一个玩意
+                    <md-button href="https://github.com/scarletmu/MBlog" target="_blank">
+                        <md-icon>code</md-icon>
+                        查看项目源码
                     </md-button>
                 </md-menu-item>
                 <md-menu-divider></md-menu-divider>
                 <md-menu-item>
-                    <md-button ng-click="">
-                        <md-icon>mail</md-icon>
-                        第二个玩意
+                    <md-button ng-click="admin()">
+                        <md-icon>build</md-icon>
+                        后台管理
                     </md-button>
                 </md-menu-item>
             </md-menu-content>
@@ -78,11 +78,9 @@
     <div ui-view=""></div>
 </div>
 
-<div class="footer">
-    <div layout='row'>
-        <span flex='5'></span>
-        <p ng-click='admin()' flex>后台管理</p>
-    </div>
+<div class="footer md-padding" layout="column" layout-align="center center">
+    <div>本Blog由 ScarletMu 编写</div>
+    <div>使用 <a href="https://material.angularjs.org/latest/">Angular-Material</a> 构建界面</div>
 </div>
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->

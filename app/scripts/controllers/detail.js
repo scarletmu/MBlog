@@ -17,6 +17,7 @@ angular.module('ScarletBlog').controller('DetailCtrl',function($scope,$q,$stateP
     Comment.addComment($scope.comment).then(function(data){
       alert('提交成功');
       $scope.comment = {topicId:$scope.topicId};
+      Init();
     }).catch(function(err){
       alert('提交失败');
     });

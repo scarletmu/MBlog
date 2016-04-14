@@ -23,8 +23,35 @@
                     <span flex></span>
                 </div>
             </md-toolbar>
-            <md-card ng-repeat="topic in topicList track by $index">
-                <div class="headImg"><img ng-src="http://ww4.sinaimg.cn/mw1024/5a64dda9gw1f2t4l53l0rj20v10d4dke.jpg"/></div>
+            <md-card class="repeated-item"  ng-repeat="top in topList track by $index">
+                <div class="headImg"><img ng-src="{{top.Thumbnail}}"/></div>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{top.Title}}</span>
+                    <span class="md-subhead">2016/3/26 <md-icon>visibility</md-icon> {{top.ViewNum}} <md-icon>
+                        comment
+                    </md-icon> {{top.CommentNum}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>{{top.Summary}}</md-card-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="md-icon-button" ng-click="showTopic(top._id,$event)">
+                        <md-icon>zoom_in</md-icon>
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-toolbar class="md-menu-toolbar">
+                <div class="md-toolbar-tools">
+                    <h2>
+                        <span>最新文章</span>
+                    </h2>
+                    <span flex></span>
+                </div>
+            </md-toolbar>
+            <md-card class="repeated-item" ng-repeat="topic in topicList track by $index" >
+                <div class="headImg"><img ng-src="{{topic.Thumbnail}}"/></div>
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">{{topic.Title}}</span>
@@ -41,53 +68,28 @@
                 </md-card-actions>
             </md-card>
         </div>
-        <div flex-xs flex-gt-xs="50" layout="column">
-            <md-toolbar class="md-menu-toolbar">
-                <div class="md-toolbar-tools">
-                    <h2>
-                        <span>最新文章</span>
-                    </h2>
-                    <span flex></span>
-                </div>
-            </md-toolbar>
-            <md-card ng-repeat="topic in topicList track by $index">
-                <div class="headImg"><img ng-src="http://ww4.sinaimg.cn/mw1024/5a64dda9gw1f2t4l53l0rj20v10d4dke.jpg"/></div>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">{{topic.Title}}</span>
-                    <span class="md-subhead">2016/3/26 <md-icon>visibility</md-icon> {{topic.ViewNum}} <md-icon>
-                        comment
-                    </md-icon> {{topic.CommentNum}}</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-content>{{topic.Summary}}</md-card-content>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-icon-button" ng-click="showTopic($event)">
-                        <md-icon>zoom_in</md-icon>
+    </div>
+    <div hide-gt-lg style="position:fixed;right:15px;bottom:15px;z-index:100;" layout="row" ng-cloak>
+        <md-fab-speed-dial md-direction="up" class="md-fling" ng-click="delay()">
+            <md-fab-trigger>
+                <md-button aria-label="menu" class="md-fab md-warn">
+                    <md-icon>view_list</md-icon>
+                    <md-tooltip md-direction="left" md-visible='isOpen'>
+                        文章分类
+                    </md-tooltip>
+                </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+                <div ng-repeat="category in categoryList">
+                    <md-button class="md-fab md-raised md-mini" ng-click="selectCategory(category._id)">
+                        <md-icon>{{category.Icon}}</md-icon>
+                        <md-tooltip md-direction="left" md-visible='isOpen'>
+                            {{category.Name}}
+                        </md-tooltip>
                     </md-button>
-                </md-card-actions>
-            </md-card>
-        </div>
+                </div>
+            </md-fab-actions>
+        </md-fab-speed-dial>
     </div>
 </md-content>
 
-<div hide-gt-lg style="position:fixed;right:15px;bottom:15px;">
-  <md-fab-speed-dial md-direction="left" class="md-fling">
-    <md-fab-trigger>
-      <md-button aria-label="menu" class="md-fab md-warn">
-        <md-icon>view_list</md-icon>
-      </md-button>
-    </md-fab-trigger>
-    <md-fab-actions>
-      <md-button class="md-fab md-raised md-mini">
-        <md-icon aria-label="Twitter"></md-icon>
-      </md-button>
-      <md-button class="md-fab md-raised md-mini">
-        <md-icon aria-label="Facebook"></md-icon>
-      </md-button>
-      <md-button class="md-fab md-raised md-mini">
-        <md-icon aria-label="Google Hangout"></md-icon>
-      </md-button>
-    </md-fab-actions>
-  </md-fab-speed-dial>
-</div>

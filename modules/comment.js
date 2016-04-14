@@ -3,9 +3,16 @@
  */
 'use strict';
 const Comment = require('../model/comment');
+const Topic = require('../model/topic');
+const Promise = require('bluebird');
 
 exports.add = function(args){
-  return Comment.add(args);
+  return Promise.all([
+    Comment.add(args),
+    Topic.addNum(args.topicId,{CommentNum:1})
+  ]).spread((add,num) => {
+    return add;
+  })
 };
 
 exports.getListByTopic = function(id){

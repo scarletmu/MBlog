@@ -97,6 +97,7 @@ md-card .headImg{
     opacity:0;
 }
 
+
 /*
  The ng-enter-active and ng-move-active
  are where the transition destination properties
@@ -108,29 +109,20 @@ md-card .headImg{
     opacity:1;
 }
 
-@keyframes my_animation {
-    from { opacity:1; }
-    to { opacity:0; }
-}
-
 /*
-  Unfortunately each browser vendor requires
-  its own definition of keyframe animation code...
+  We're using CSS keyframe animations for when
+  the leave event is triggered for the element
+  that has the .repeated-item class
 */
-@-webkit-keyframes my_animation {
+.repeated-item.ng-leave {
+    -webkit-animation:0.5s close;
+    -moz-animation:0.5s close;
+    -o-animation:0.5s close;
+    animation:0.5s close;
+}
+
+@keyframes close {
     from { opacity:1; }
     to { opacity:0; }
 }
 
-@-moz-keyframes my_animation {
-    from { opacity:1; }
-    to { opacity:0; }
-}
-
-@-o-keyframes my_animation {
-    from { opacity:1; }
-    to { opacity:0; }
-}
-.preview img {
-    width: auto;
-}

@@ -24,4 +24,4 @@ angular
           .toggle()
       }
     }
-  })
+  });

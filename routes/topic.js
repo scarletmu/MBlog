@@ -10,11 +10,11 @@ router.get('/getList',function(req,res,next){
 });
 
 router.get('/getTop',function(req,res,next){
-  Topic.getTop().then((data) => {res.json(data)}).catch((err) => {console.log(err);res.status(400).end()})
+  Topic.getTop().then((data) => {res.json(data)}).catch((err) => {res.status(400).end()});
 });
 
 router.get('/getDetail',function(req,res,next){
-  Topic.getDetail(req.query['topicId']).then((data) => {console.log(data);res.json(data)}).catch((err) => {console.log(err);res.status(400).end()})
+  Topic.getDetail(req.query['topicId']).then((data) => {res.json(data)}).catch((err) => {console.log(err);res.status(400).end()})
 });
 
 router.get('/getListByCategory',function(req,res,next){

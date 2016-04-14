@@ -2,19 +2,31 @@
  * Created by Mu on 16/3/26.
  */
 angular.module('ScarletBlog')
-  .controller('TopicCtrl', function ($scope,$q,$mdDialog,$mdMedia,Topic,Category) {
+  .controller('TopicCtrl', function ($scope,$timeout,$q,$mdDialog,$mdMedia,Topic,Category) {
     function Init(){
       $scope.page = 1;
       $scope.isSelect = false;
+      $scope.isOpen = false;
       $q.all([
         Topic.getList($scope.page),
+        Topic.getTop(),
         Category.getList()
       ]).then(function(data){
         $scope.topicList = data[0].data;
-        $scope.categoryList = data[1].data;
+        $scope.topList = data[1].data;
+        $scope.categoryList = data[2].data;
       });
     }
     Init();
+    $scope.delay = function(){
+      if($scope.isOpen){
+        $scope.isOpen = false;
+      }else{
+        $timeout(function(){
+          $scope.isOpen = true
+        },300);
+      }
+    };
     $scope.showTopic = function(topicId,ev) {
       sessionStorage.setItem('topicId',topicId);
       $mdDialog.show({

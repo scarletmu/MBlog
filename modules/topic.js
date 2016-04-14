@@ -3,6 +3,7 @@
  */
 'use strict';
 const Topic = require('../model/topic');
+const Promise = require('bluebird');
 
 exports.getList = function(page){
   let select = {},limit = {skip:(page-1)*20,limit:5};
@@ -19,12 +20,17 @@ exports.getListByCategory = function(id){
 };
 
 exports.getTop = function(){
-  let select = {isTop:true};
+  let select = {Top:true};
   return Topic.getList(select,{});
 };
 
 exports.getDetail = function(TopicId){
-  return Topic.getDetail(TopicId);
+  return Promise.all([
+    Topic.getDetail(TopicId),
+    Topic.addNum(TopicId,{ViewNum:1})
+  ]).spread((detail,addResult) => {
+    return detail;
+  })
 };
 
 exports.addTopic = function(args){

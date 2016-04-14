@@ -9,10 +9,10 @@
       </div>
   </md-toolbar>
   <md-dialog-content layout="column">
-    <div layout="row">
+    <div layout="row" layout-xs="column">
         <md-card flex layout='column' class='md-padding'>
             <div flex layout='row'>
-                <md-input-container flex=''>
+                <md-input-container flex='50'>
                     <label>文章标题</label>
                     <input ng-model="topic.Title">
                 </md-input-container>
@@ -24,6 +24,11 @@
                         </md-option>
                     </md-select>
                 </md-input-container>
+                <md-input-container flex>
+                    <md-checkbox ng-model="topic.Top">
+                        是否置顶
+                    </md-checkbox>
+                </md-input-container>
             </div>
             <div layout="row">
                 <md-input-container flex=''>
@@ -34,6 +39,12 @@
                     <md-button ngf-select="uploadImage($file)" multiple class="md-raised"
                                accept="image/*" ngf-max-size="2MB" ng-disabled="createSuccess == false">
                         上传图片</md-button>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex=''>
+                    <label>缩略图地址</label>
+                    <input ng-model="topic.Thumbnail">
                 </md-input-container>
             </div>
             <textarea rows='20' cols="60" ng-model='topic.Content' flex ng-keyup="parse()"></textarea>

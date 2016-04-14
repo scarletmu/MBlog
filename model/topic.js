@@ -9,6 +9,10 @@ exports.addTopic = function(args){
   return Topic.create(args);
 };
 
+exports.addNum = function(id,args){
+  return Topic.update({_id:id},{$inc:args})
+};
+
 exports.editTopic = function(id,args){
   return Topic.update({_id:id},{$set:args});
 };
@@ -18,6 +22,6 @@ exports.getList = function(select,page){
 };
 
 exports.getDetail = function(TopicId){
-  console.log(TopicId);
   return Topic.findById(TopicId).exec();
 };
+
