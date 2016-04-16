@@ -24,9 +24,9 @@ app.use(session({
   secret: '234adfgaeryq34dwf'
 }));
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+//// view engine setup
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

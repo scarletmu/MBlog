@@ -33,7 +33,7 @@ angular.module('ScarletBlog')
             $timeout(function(){
             if(res.status == 200){
               alert('上传成功!');
-              $scope.images.push('http://scarletmu.b0.upaiyun.com/'+res.data.url);
+              $scope.images.push('http://scarletmu.b0.upaiyun.com'+res.data.url);
             }else{
               alert('上传失败!请再次尝试');
             }

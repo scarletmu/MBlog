@@ -8,7 +8,6 @@ router.post('/login',function(req,res,next){
   User.login(data.username,data.password)
     .then((data) => {
       req.session = _.assign(req.session,data);
-      console.log(data);
       res.status(200).end();
     }).catch((err) => {
       console.log(err);
@@ -17,7 +16,6 @@ router.post('/login',function(req,res,next){
 });
 
 router.get('/checkLogin',function(req,res,next){
-  console.log(req.session);
   if(req.session.username){
     res.status(200).end();
   }else{
