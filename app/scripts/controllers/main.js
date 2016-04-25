@@ -3,8 +3,7 @@
  */
 angular
   .module('ScarletBlog')
-  .controller('AppCtrl',function($scope,User,$state){
-    $scope.imagePath = 'imgs/test.jpg';
+  .controller('AppCtrl',function($scope,User,$state,Category){
     $scope.admin = function(){
       User.checkLogin().then(function(){
         $state.go('admin');
@@ -16,7 +15,7 @@ angular
       alert('!');
     }
   })
-  .controller('BarCtrl',function($scope,$mdSidenav){
+  .controller('BarCtrl',function($scope,$mdSidenav,$state){
     $scope.toggleLeft = buildToggler('left');
     function buildToggler(navID) {
       return function() {
@@ -24,4 +23,7 @@ angular
           .toggle()
       }
     }
+    $scope.goHome = function(){
+      $state.go('topic');
+    };
   });
