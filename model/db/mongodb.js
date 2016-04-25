@@ -45,6 +45,11 @@ const UserSchema = new mongoose.Schema({
   password:{type:String}
 });
 
+const HelloSchema = new mongoose.Schema({
+  username:{type:String},
+  content:{type:String}
+});
+
 exports.TopicModel = mongoose.model('topic',TopicSchema);
 exports.CommentModel = mongoose.model('comment',CommentSchema);
 exports.CategoryModel = mongoose.model('category',CategorySchma,'category');

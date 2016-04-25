@@ -6,7 +6,7 @@ const Topic = require('../model/topic');
 const Promise = require('bluebird');
 
 exports.getList = function(page){
-  let select = {},limit = {skip:(page-1)*20,limit:5};
+  let select = {},limit = {skip:(page-1)*5,limit:5};
   return Topic.getList(select,limit);
 };
 
