@@ -4,6 +4,12 @@
 angular
   .module('ScarletBlog')
   .controller('AppCtrl',function($scope,User,$state,Category){
+    function Init(){
+      Category.getList().then(function(data){
+        $scope.categoryList = data.data;
+      });
+    }
+    Init();
     $scope.admin = function(){
       User.checkLogin().then(function(){
         $state.go('admin');
@@ -11,9 +17,6 @@ angular
         $state.go('login');
       })
     };
-    $scope.response = function(){
-      alert('!');
-    }
   })
   .controller('BarCtrl',function($scope,$mdSidenav,$state){
     $scope.toggleLeft = buildToggler('left');

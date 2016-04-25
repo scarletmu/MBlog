@@ -10,7 +10,7 @@
             </div>
         </md-toolbar>
         <md-dialog-content layout="column">
-            <div class="md-dialog-content" flex>
+            <div class="md-dialog-content topicBody" flex>
                 <h2>{{topicData.Title}}</h2>
                 <span class="md-subhead">2016/3/26 <md-icon>visibility</md-icon> {{topicData.ViewNum}} <md-icon>comment</md-icon> {{topicData.CommentNum}}</span>
                 <p ng-bind-html="topicData.html"></p>
@@ -23,9 +23,6 @@
             <span flex></span>
             <md-button ng-click="hide()">
                 <md-icon></md-icon>
-            </md-button>
-            <md-button ng-click="hide()" style="margin-right:20px;">
-                那啥
             </md-button>
         </md-dialog-actions>
     </form>

@@ -59,6 +59,61 @@
     </div>
 </md-toolbar>
 
+<md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"
+        md-disable-backdrop
+        md-whiteframe="5"
+        layout="column">
+    <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">大概是个侧边栏</h1>
+    </md-toolbar>
+    <md-content layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-media>
+                    <div class="md-media-md card-media" layout layout-align="center center">
+                        <img class="img-circle" src="http://tp2.sinaimg.cn/1516559785/180/5740563491/1"/>
+                    </div>
+                </md-card-title-media>
+                <md-card-title-text>
+                    <span class="md-headline">ScarletMu</span>
+                    <span class="md-subhead description">
+                        &nbsp;吃饭睡觉写代码<br>
+                        &nbsp;Node.Js/前端萌新<br>
+                        &nbsp;<a href="http://weibo.com/scarletmu" target="_blank">@scarletmu</a> </span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+        <md-list flex>
+            <md-list-item class="md-2-line" ng-click="response()">
+                <md-icon class="md-avatar-icon" md-svg-icon="imgs/github.svg"></md-icon>
+                <div class="md-list-item-text">
+                    <h3>我的GitHub</h3>
+                    <p>虽然基本没有什么干货</p>
+                </div>
+            </md-list-item>
+            <md-list-item class="md-2-line" ng-click="response()">
+                <md-icon class="md-avatar-icon" md-svg-icon="imgs/weibo.svg"></md-icon>
+                <div class="md-list-item-text">
+                    <h3>我的微博</h3>
+                    <p>日常吐槽</p>
+                </div>
+            </md-list-item>
+            <md-list-item class="md-2-line" ng-click="response()">
+                <md-icon class="md-avatar-icon" md-svg-icon="imgs/lofter.svg"></md-icon>
+                <div class="md-list-item-text">
+                    <h3>我的Lofter</h3>
+                    <p>偶尔拍拍照</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+    <div class="md-padding" layout="column" layout-align="end center" style="" flex>
+        <div>Mail:scarletmu@126.com</div>
+    </div>
+</md-sidenav>
+
 <div class="container layout-padding">
     <div ui-view=""></div>
 </div>
@@ -92,7 +147,7 @@
 <script src="scripts/controllers/manage.js"></script>
 <script src="scripts/controllers/detail.js"></script>
 <script src="scripts/controllers/adminList.js"></script>
-<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+<!--<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>-->
 <!-- endbuild -->
 </body>
 </html>

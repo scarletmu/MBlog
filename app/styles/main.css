@@ -10,10 +10,16 @@
 body {
   padding: 0;
 }
+
+.topicBody img{
+ max-width: 100%;
+}
+
 md-card .headImg{
     max-height:200px;
     overflow:hidden
 }
+
 .table-bordered{
     border: 1px solid #cccccc;
     -webkit-border-radius: 3px;

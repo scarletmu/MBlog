@@ -5,14 +5,20 @@
 const Comment = require('../model/comment');
 const Topic = require('../model/topic');
 const Promise = require('bluebird');
+const _ = require('lodash');
+
 
 exports.add = function(args){
-  return Promise.all([
-    Comment.add(args),
-    Topic.addNum(args.topicId,{CommentNum:1})
-  ]).spread((add,num) => {
-    return add;
-  })
+  if(!args.Content == !args.Name){
+    return Promise.reject('Empty');
+  }else{
+    return Promise.all([
+      Comment.add(args),
+      Topic.addNum(args.topicId,{CommentNum:1})
+    ]).spread((add,num) => {
+      return add;
+    })
+  }
 };
 
 exports.getListByTopic = function(id){

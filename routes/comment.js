@@ -10,7 +10,7 @@ router.post('/addComment',function(req,res,next){
 });
 
 router.get('/getListByTopic',function(req,res,next){
-  Comment.getListByTopic(req.query['id']).then((data) => {console.log(data);res.json(data);}).catch((err) => {console.log(err);res.status(400).end();})
+  Comment.getListByTopic(req.query['id']).then((data) => {res.json(data);}).catch((err) => {console.log(err);res.status(400).end();})
 });
 
 router.get('/getList',function(req,res,next){
