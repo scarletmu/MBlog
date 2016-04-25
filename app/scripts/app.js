@@ -23,6 +23,10 @@ angular
         url:'/detail/:topicId',
         templateUrl:'views/topicDetail.html'
       })
+      .state('message',{
+        url:'/message',
+        templateUrl:'views/message.html'
+      })
 
       //管理路由
       .state('admin',{
