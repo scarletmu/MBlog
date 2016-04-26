@@ -1,4 +1,4 @@
-<md-dialog class="md-dialog-fullscreen" aria-label="新增文章" ng-controller="TopicManageCtrl" style="width:100%;height:100%;">
+<md-dialog class="md-dialog-fullscreen" aria-label="新增文章" ng-controller="TopicManageCtrl" style="min-width:100%;min-height:100%">
   <md-toolbar>
       <div class="md-toolbar-tools">
         <h2>新增文章</h2>
@@ -9,9 +9,9 @@
       </div>
   </md-toolbar>
   <md-dialog-content layout="column">
-    <div layout="row" layout-xs="column">
+    <div layout="row" layout-xs="column" style="max-height:95%">
         <md-card flex layout='column' class='md-padding'>
-            <div flex layout='row'>
+            <div flex='10' flex-xs="15" layout='row'>
                 <md-input-container flex='50'>
                     <label>文章标题</label>
                     <input ng-model="topic.Title">
@@ -30,7 +30,7 @@
                     </md-checkbox>
                 </md-input-container>
             </div>
-            <div layout="row">
+            <div flex='10' flex-xs="15" layout="row">
                 <md-input-container flex=''>
                     <label>文章简介</label>
                     <input ng-model="topic.Summary">
@@ -41,15 +41,15 @@
                         上传图片</md-button>
                 </md-input-container>
             </div>
-            <div layout="row">
+            <div flex='10' flex-xs="15" layout="row">
                 <md-input-container flex=''>
                     <label>缩略图地址</label>
                     <input ng-model="topic.Thumbnail">
                 </md-input-container>
             </div>
-            <textarea rows='20' cols="60" ng-model='topic.Content' flex ng-keyup="parse()"></textarea>
+            <textarea flex rows='30' cols="60" ng-model='topic.Content' flex ng-keyup="parse()"></textarea>
         </md-card>
-        <md-card flex class='md-padding preview' ng-bind-html="html" style="overflow: auto">
+        <md-card flex class='md-padding preview' ng-bind-html="html">
         </md-card>
     </div>
     <div>

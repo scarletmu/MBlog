@@ -10,7 +10,13 @@
 body {
   padding: 0;
 }
-
+.preview {
+    max-height: 100%;
+    overflow:auto;
+}
+.preview img{
+  width:auto;
+}
 .topicBody img{
  max-width: 100%;
 }

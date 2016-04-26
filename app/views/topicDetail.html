@@ -1,6 +1,7 @@
 <div ng-controller='DetailCtrl' layout="column">
     <div class="md-padding topicBody" flex>
-      <h2>{{topicData.Title}}</h2>
+      <h2 id="topicHead">{{topicData.Title}}</h2>
+      <h3 id="topicSummary" hidden>{{topicData.Summary}}</h3>
       <span class="md-subhead">2016/3/26 <md-icon>visibility</md-icon> {{topicData.ViewNum}} <md-icon>comment</md-icon> {{topicData.CommentNum}}</span>
       <p ng-bind-html="topicData.html"></p>
     </div>

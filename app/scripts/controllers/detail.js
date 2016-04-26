@@ -13,6 +13,7 @@ angular.module('ScarletBlog').controller('DetailCtrl',function($scope,$q,$stateP
     });
   }
   Init();
+
   $scope.saveComment = function(){
     Comment.addComment($scope.comment).then(function(data){
       alert('提交成功');
