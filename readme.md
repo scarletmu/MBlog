@@ -1,5 +1,4 @@
 # MBlog
-***
 这是个自己写着玩的Blog,刚接触前端没多久,练手之作
 ## 使用的东西
 * Node.Js with Express
@@ -8,6 +7,7 @@
 * Redis
 * MongoDB
 * Upyun
+* Showdown
 
 ## 目前实现了的功能
 

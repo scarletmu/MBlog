@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:wb="http://open.weibo.com/wb">
+<html>
 <head>
     <meta charset="utf-8">
     <title>Scarlet's Blog</title>
@@ -86,29 +86,29 @@
             </md-card-title>
         </md-card>
         <md-list flex>
-            <md-list-item class="md-2-line" ng-click="response()">
+            <md-list-item class="md-2-line" ng-click="sideNav('https://github.com/scarletmu')">
                 <md-icon class="md-avatar-icon" md-svg-icon="imgs/github.svg"></md-icon>
                 <div class="md-list-item-text">
                     <h3>我的GitHub</h3>
                     <p>虽然基本没有什么干货</p>
                 </div>
             </md-list-item>
-            <md-list-item class="md-2-line" ng-click="response()">
+            <md-list-item class="md-2-line" ng-click="sideNav('http://weibo.com/scarletmu')">
                 <md-icon class="md-avatar-icon" md-svg-icon="imgs/weibo.svg"></md-icon>
                 <div class="md-list-item-text">
                     <h3>我的微博</h3>
                     <p>日常吐槽</p>
                 </div>
             </md-list-item>
-            <md-list-item class="md-2-line" ng-click="response()">
+            <md-list-item class="md-2-line" ng-click="sideNav('http://scarletmu.lofter.com/')">
                 <md-icon class="md-avatar-icon" md-svg-icon="imgs/lofter.svg"></md-icon>
                 <div class="md-list-item-text">
                     <h3>我的Lofter</h3>
                     <p>偶尔拍拍照</p>
                 </div>
             </md-list-item>
-            <md-list-item class="md-2-line" ui-sref="message">
-                <md-icon class="md-avatar-icon" md-svg-icon="imgs/lofter.svg"></md-icon>
+            <md-list-item class="md-2-line" ng-click="goMsg()">
+                <md-icon class="md-avatar-icon">message</md-icon>
                 <div class="md-list-item-text">
                     <h3>留言</h3>
                     <p>对我说点啥?</p>
@@ -126,7 +126,7 @@
 </div>
 
 <div class="footer md-padding" layout="column" layout-align="center center">
-    <div>本Blog由 ScarletMu 编写,基于AngularJs</div>
+    <div>本开源Blog由 ScarletMu 编写,基于AngularJs</div>
     <div>使用 <a href="https://material.angularjs.org/latest/">Angular-Material</a> 构建界面</div>
 </div>
 <!-- build:js(.) scripts/vendor.js -->

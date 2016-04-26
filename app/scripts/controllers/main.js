@@ -3,13 +3,7 @@
  */
 angular
   .module('ScarletBlog')
-  .controller('AppCtrl',function($scope,User,$state,Category){
-    function Init(){
-      Category.getList().then(function(data){
-        $scope.categoryList = data.data;
-      });
-    }
-    Init();
+  .controller('AppCtrl',function($scope,User,$state,$mdSidenav,$window){
     $scope.admin = function(){
       User.checkLogin().then(function(){
         $state.go('admin');
@@ -17,6 +11,13 @@ angular
         $state.go('login');
       })
     };
+    $scope.sideNav = function(action){
+      $window.open(action);
+    };
+    $scope.goMsg = function(){
+      $state.go('message');
+      $mdSidenav('left').close();
+    }
   })
   .controller('BarCtrl',function($scope,$mdSidenav,$state){
     $scope.toggleLeft = buildToggler('left');

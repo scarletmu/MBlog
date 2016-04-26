@@ -1,6 +1,6 @@
-<md-content ng-controller='LoginCtrl' layout="row">
+<md-content ng-controller='LoginCtrl' layout="row" layout-align="center center">
   <span flex='5'></span>
-  <md-card flex layout='column' class='md-padding'>
+  <md-card flex layout='column' class='md-padding' style="max-width:500px;">
     <md-input-container flex>
       <label>用户名</label>
       <md-icon>face</md-icon>
@@ -9,7 +9,7 @@
     <md-input-container flex>
       <label>密码</label>
       <md-icon>pets</md-icon>
-      <input ng-model="password" type="text">
+      <input ng-model="password" type="password">
     </md-input-container>
     <md-button ng-click='login()'>登录</md-button>
   </md-card>

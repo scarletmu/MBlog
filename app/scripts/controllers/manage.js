@@ -11,6 +11,7 @@ angular.module('ScarletBlog')
       $scope.topic = {};
       $scope.isUpdate = false;
     }
+
     $scope.images = [];
     function Init(){
      Category.getList().then(function(data){
