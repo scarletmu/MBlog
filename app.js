@@ -12,7 +12,7 @@ var RedisStore = require('connect-redis')(session);
 var app = express();
 
 app.get('/', function (req, res) {
-  res.sendfile('app/index.html');
+  res.sendFile(__dirname,'app/index.html');
 });
 
 app.use(session({

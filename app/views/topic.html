@@ -1,4 +1,4 @@
-<md-content class="md-padding" layout-xs="column" layout="row" ng-controller="TopicCtrl">
+<md-content class="md-padding" layout-xs="column" layout="row" ng-controller="TopicCtrl" ng-class="{'blur':isOpenTopic}">
     <div hide-xs hide-sm flex-gt-xs="20" layout="column">
         <md-card>
             <md-list>
@@ -13,12 +13,35 @@
             </md-list>
         </md-card>
     </div>
+
     <div flex-xs flex-gt-xs="75" layout-gt-md="row" layout="column">
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card class="repeated-item" ng-repeat="topic in topicList track by $index" >
+                <div class="headImg"><img ng-src="{{topic.Thumbnail}}"/></div>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{topic.Title}}</span>
+                    <span class="md-subhead">2016/3/26 <md-icon>visibility</md-icon> {{topic.ViewNum}} <md-icon>
+                        comment
+                    </md-icon> {{topic.CommentNum}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>{{topic.Summary}}</md-card-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="md-icon-button" ng-click="showTopic(topic._id,$event)">
+                        <md-icon>zoom_in</md-icon>
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
         <div flex-xs flex-gt-xs="50" layout="column" ng-hide="isSelect">
-            <md-toolbar class="md-menu-toolbar">
+            <md-toolbar class="md-menu-toolbar listHead" style="background:none;float:right;">
                 <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" aria-label="Settings" disabled>
+                        <md-icon>file_upload</md-icon>
+                    </md-button>
                     <h2>
-                        <span>置顶文章</span>
+                        <span style="color:gray"><strong>置顶文章</strong></span>
                     </h2>
                     <span flex></span>
                 </div>
@@ -36,33 +59,6 @@
                 <md-card-content>{{top.Summary}}</md-card-content>
                 <md-card-actions layout="row" layout-align="end center">
                     <md-button class="md-icon-button" ng-click="showTopic(top._id,$event)">
-                        <md-icon>zoom_in</md-icon>
-                    </md-button>
-                </md-card-actions>
-            </md-card>
-        </div>
-        <div flex-xs flex-gt-xs="50" layout="column">
-            <md-toolbar class="md-menu-toolbar">
-                <div class="md-toolbar-tools">
-                    <h2>
-                        <span>最新文章</span>
-                    </h2>
-                    <span flex></span>
-                </div>
-            </md-toolbar>
-            <md-card class="repeated-item" ng-repeat="topic in topicList track by $index" >
-                <div class="headImg"><img ng-src="{{topic.Thumbnail}}"/></div>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">{{topic.Title}}</span>
-                    <span class="md-subhead">2016/3/26 <md-icon>visibility</md-icon> {{topic.ViewNum}} <md-icon>
-                        comment
-                    </md-icon> {{topic.CommentNum}}</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-content>{{topic.Summary}}</md-card-content>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-icon-button" ng-click="showTopic(topic._id,$event)">
                         <md-icon>zoom_in</md-icon>
                     </md-button>
                 </md-card-actions>

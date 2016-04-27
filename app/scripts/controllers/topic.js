@@ -7,6 +7,7 @@ angular.module('ScarletBlog')
       $scope.page = 1;
       $scope.isSelect = false;
       $scope.isOpen = false;
+      $scope.isOpenTopic = false;
       $q.all([
         Topic.getList($scope.page),
         Topic.getTop(),
@@ -29,6 +30,7 @@ angular.module('ScarletBlog')
     };
     $scope.showTopic = function(topicId,ev) {
       sessionStorage.setItem('topicId',topicId);
+      $scope.isOpenTopic = true;
       $mdDialog.show({
           controller: DialogController,
           templateUrl: 'views/topicDialog.html',
@@ -36,7 +38,10 @@ angular.module('ScarletBlog')
           targetEvent: ev,
           clickOutsideToClose:false,
           fullscreen: true
-        });
+        })
+      .then(function(){
+        $scope.isOpenTopic = false;
+      });
     };
 
     $scope.selectCategory = function(id){
