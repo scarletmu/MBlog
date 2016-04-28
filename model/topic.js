@@ -22,16 +22,7 @@ exports.editTopic = function(id,args){
 };
 
 exports.getList = function(select,page){
-  return Topic.find(select,'',page)
-    .then(function(data){
-      let result = data.map(function(e){
-        e = e.toJSON();
-        e.CreatedTime = new Date(e.CreatedTime).toLocaleString();
-        return e;
-      });
-      console.log(result);
-      return result;
-    });
+  return Topic.find(select,'',page);
 };
 
 exports.getDetail = function(TopicId){

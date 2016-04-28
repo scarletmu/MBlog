@@ -6,8 +6,16 @@ const Topic = require('../model/topic');
 const Promise = require('bluebird');
 
 exports.getList = function(page){
-  let select = {},limit = {skip:(page-1)*5,limit:5};
-  return Topic.getList(select,limit);
+  let select = {},limit = {skip:(page-1)*5,limit:5,sort:{CreatedTime:-1}};
+  return Topic.getList(select,limit)
+    .then(function(data){
+    let result = data.map(function(e){
+      e = e.toJSON();
+      e.CreatedTime = new Date(e.CreatedTime).toLocaleString();
+      return e;
+    });
+    return result;
+  });
 };
 
 exports.editTopic = function(id,args){
