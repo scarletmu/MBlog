@@ -5,6 +5,10 @@
 const Topic = require('./db/mongodb').TopicModel;
 const ObjectId = require('mongoose').Schema.ObjectId;
 
+Date.prototype.toLocaleString = function () {
+  return this.getFullYear() + "年" + (this.getMonth() + 1) + "月" + this.getDate() + "日 " + this.getHours() + "点" + this.getMinutes() + "分" + this.getSeconds() + "秒";
+};
+
 exports.addTopic = function(args){
   return Topic.create(args);
 };
@@ -18,10 +22,20 @@ exports.editTopic = function(id,args){
 };
 
 exports.getList = function(select,page){
-  return Topic.find(select,'',page);
+  return Topic.find(select,'',page)
+    .then(function(data){
+      let result = data.map(function(e){
+        e = e.toJSON();
+        e.CreatedTime = new Date(e.CreatedTime).toLocaleString();
+        return e;
+      });
+      console.log(result);
+      return result;
+    });
 };
 
 exports.getDetail = function(TopicId){
   return Topic.findById(TopicId).exec();
 };
+
 
