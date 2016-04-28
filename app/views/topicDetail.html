@@ -1,5 +1,5 @@
 <div ng-controller='DetailCtrl' layout="column">
-    <div class="md-padding topicBody" flex afterLoad>
+    <md-card class="md-padding topicBody" flex>
       <h2 id="topicHead">{{topicData.Title}}</h2>
       <h3 id="topicSummary" hidden>{{topicData.Summary}}</h3>
       <span class="md-subhead">2016/3/26 <md-icon>visibility</md-icon> {{topicData.ViewNum}} <md-icon>comment</md-icon> {{topicData.CommentNum}}</span>
@@ -7,7 +7,7 @@
       <md-button ng-click="Share()">
           <md-icon md-svg-icon="imgs/weibo.svg"></md-icon>分享到微博
       </md-button>
-    </div>
+    </md-card>
   <md-card layout="column" class="md-padding">
     <div class="comment" flex layout="row">
       <md-list>

@@ -36,7 +36,8 @@ md-content {
   width:auto;
 }
 .topicBody img{
- max-width: 100%;
+ width:auto;
+ max-width:100%;
 }
 @media (min-width: 960px){
     .topicDialog{
