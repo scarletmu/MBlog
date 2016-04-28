@@ -17,7 +17,11 @@ angular
     $scope.goMsg = function(){
       $state.go('message');
       $mdSidenav('left').close();
-    }
+    };
+    $scope.goAbout = function(){
+      $state.go('about');
+      $mdSidenav('left').close();
+    };
   })
   .controller('BarCtrl',function($scope,$mdSidenav,$state){
     $scope.toggleLeft = buildToggler('left');

@@ -14,6 +14,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animate.css">
     <link rel="stylesheet" href="iconfont/material-icons.css">
     <!-- endbuild -->
 </head>
@@ -36,6 +37,9 @@
         <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="goHome()">
             <md-icon>home</md-icon>
         </md-button>
+        <!--<md-button aria-label="Open phone interactions menu" class="md-icon-button" ui-sref="items">-->
+            <!--项目-->
+        <!--</md-button>-->
         <md-menu md-position-mode="target-right target">
             <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="$mdOpenMenu()">
                 <md-icon >more_vert</md-icon>
@@ -73,7 +77,7 @@
             <md-card-title>
                 <md-card-title-media>
                     <div class="md-media-md card-media" layout layout-align="center center">
-                        <img class="img-circle" src="https://tp2.sinaimg.cn/1516559785/180/5740563491/1"/>
+                        <img class="img-circle" src="https://scarletmu.b0.upaiyun.com/blog/16e7f8ebcc9468fe467a585468b3ad2a.jpg"/>
                     </div>
                 </md-card-title-media>
                 <md-card-title-text>
@@ -81,7 +85,7 @@
                     <span class="md-subhead description">
                         &nbsp;吃饭睡觉写代码<br>
                         &nbsp;Node.Js/前端萌新<br>
-                        &nbsp;<a href="http://weibo.com/scarletmu" target="_blank">@scarletmu</a> </span>
+                        <!--&nbsp;<a ng-click="goAbout()">关于我</a> </span>-->
                 </md-card-title-text>
             </md-card-title>
         </md-card>

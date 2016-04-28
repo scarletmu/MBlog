@@ -1,4 +1,4 @@
-<md-card layout='column' ng-controller="CategoryListCtrl">
+<md-card class="fadeIn" layout='column' ng-controller="CategoryListCtrl">
     <md-toolbar class="md-menu-toolbar" flex>
         <div class="md-toolbar-tools">
             <md-button class="md-icon-button" aria-label="Settings" ng-click="addNewCategory()">
@@ -12,7 +12,7 @@
     </md-toolbar>
     <md-content class="page-container" flex>
         <md-list>
-            <md-list-item class='md-2-line repeated-item' ng-repeat="category in categoryList">
+            <md-list-item class='md-2-line' ng-repeat="category in categoryList">
                 <md-icon class="md-avatar-icon">{{category.Icon}}</md-icon>
                 <div class="md-list-item-text" layout="column" ng-click='addNew()'>
                     <h3>{{category.Name}}</h3>
