@@ -2,7 +2,7 @@
  * Created by Mu on 16/3/26.
  */
 angular.module('ScarletBlog')
-  .controller('TopicCtrl', function ($scope,$timeout,$q,$mdDialog,$mdMedia,Topic,Category) {
+  .controller('TopicCtrl', function ($scope,$timeout,$q,$mdDialog,$mdMedia,Topic,Category,$window) {
     function Init(){
       $scope.page = 1;
       $scope.isSelect = false;
@@ -58,6 +58,10 @@ angular.module('ScarletBlog')
       getList();
     };
 
+    $scope.goDetail = function(id){
+      $window.open('#/detail/'+id);
+    };
+
     $scope.delay = function(){
       if($scope.isOpen){
         $scope.isOpen = false;
@@ -72,7 +76,7 @@ angular.module('ScarletBlog')
       $scope.isOpenTopic = true;
       $mdDialog.show({
           controller: DialogController,
-          templateUrl: 'views/topicDialog.dialog.html',
+          templateUrl: 'views/topics/topicDialog.dialog.html',
           parent: angular.element(document.body),
           targetEvent: ev,
           clickOutsideToClose:false,

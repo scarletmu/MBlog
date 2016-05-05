@@ -20,7 +20,7 @@
                 <div class="headImg"><img ng-src="{{topic.Thumbnail}}"/></div>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline">{{topic.Title}}</span>
+                        <span class="md-headline" ng-click="goDetail(topic._id)">{{topic.Title}}</span>
                     <span class="md-subhead">{{topic.CreatedTime}} <md-icon>visibility</md-icon> {{topic.ViewNum}} <md-icon>
                         comment
                     </md-icon> {{topic.CommentNum}}</span>
