@@ -12,7 +12,7 @@ angular.module('ScarletBlog')
   Init();
   $scope.addNewCategory = function(){
     $mdDialog.show({
-      templateUrl:'../../views/admin/newCategory.html',
+      templateUrl:'../../views/admin/newCategory.dialog.html',
       fullscreen:true
     })
   };

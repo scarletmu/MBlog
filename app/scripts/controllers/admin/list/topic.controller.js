@@ -12,7 +12,7 @@ angular.module('ScarletBlog')
     Init();
     $scope.addNewTopic = function(){
       $mdDialog.show({
-        templateUrl:'../../views/admin/newTopic.html',
+        templateUrl:'../../views/admin/newTopic.dialog.html',
         fullscreen:true
       }).then(function(){
         Init();
@@ -21,7 +21,7 @@ angular.module('ScarletBlog')
     $scope.EditTopic = function(id){
       sessionStorage.setItem('editTag',id);
       $mdDialog.show({
-        templateUrl:'../../views/admin/newTopic.html',
+        templateUrl:'../../views/admin/newTopic.dialog.html',
         fullscreen:true
       }).then(function(){
         Init();

@@ -72,7 +72,7 @@ angular.module('ScarletBlog')
       $scope.isOpenTopic = true;
       $mdDialog.show({
           controller: DialogController,
-          templateUrl: 'views/topicDialog.html',
+          templateUrl: 'views/topicDialog.dialog.html',
           parent: angular.element(document.body),
           targetEvent: ev,
           clickOutsideToClose:false,

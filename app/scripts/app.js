@@ -18,50 +18,42 @@ angular
       //文章页
       .state('topic', {
         url: "/topic",
-        templateUrl: "views/topic.html"
+        templateUrl: "views/topics/topic.index.html"
       })
       .state('detail',{
         url:'/detail/:topicId',
-        templateUrl:'views/topicDetail.html'
-      })
-      .state('about',{
-        url:'/about',
-        templateUrl:'views/about.html'
-      })
-      .state('items',{
-        url:'/item',
-        templateUrl:'views/items.html'
+        templateUrl:'views/topics/topicDetail.template.html'
       })
       .state('message',{
         url:'/message',
-        templateUrl:'views/message.html'
+        templateUrl:'views/message.template.html'
       })
 
       //管理
       .state('admin',{
         url:'/admin',
-        templateUrl:'views/admin/index.html'
+        templateUrl:'views/admin/admin.index.html'
       })
       .state('admin.topicList',{
         url:'/topicList',
-        templateUrl:'views/admin/topicList.html'
+        templateUrl:'views/admin/topicList.template.html'
       })
       .state('admin.categoryList',{
         url:'/categoryList',
-        templateUrl:'views/admin/categoryList.html'
+        templateUrl:'views/admin/categoryList.template.html'
       })
       .state('admin.commentList',{
         url:'/commentList',
-        templateUrl:'views/admin/commentList.html'
+        templateUrl:'views/admin/commentList.template.html'
       })
       .state('admin.newTopic',{
         url:'/newTopic',
-        templateUrl:'views/admin/newTopic.html'
+        templateUrl:'views/admin/newTopic.dialog.html'
       })
       //登录
       .state('login',{
         url:'/login',
-        templateUrl:'views/admin/login.html'
+        templateUrl:'views/admin/login.template.html'
       })
   })
   .config(function($mdThemingProvider) {
