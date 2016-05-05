@@ -36,19 +36,19 @@ angular
       })
       .state('admin.topicList',{
         url:'/topicList',
-        templateUrl:'views/admin/topicList.template.html'
+        templateUrl:'views/admin/list/topicList.template.html'
       })
       .state('admin.categoryList',{
         url:'/categoryList',
-        templateUrl:'views/admin/categoryList.template.html'
+        templateUrl:'views/admin/list/categoryList.template.html'
       })
       .state('admin.commentList',{
         url:'/commentList',
-        templateUrl:'views/admin/commentList.template.html'
+        templateUrl:'views/admin/list/commentList.template.html'
       })
       .state('admin.newTopic',{
         url:'/newTopic',
-        templateUrl:'views/admin/newTopic.dialog.html'
+        templateUrl:'views/admin/list/newTopic.dialog.html'
       })
       //登录
       .state('login',{
