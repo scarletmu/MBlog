@@ -33,6 +33,10 @@
                     </md-button>
                 </md-card-actions>
             </md-card>
+            <div layout="row">
+                <md-button flex ng-click="privPage()"><md-icon>keyboard_arrow_left</md-icon></md-button>
+                <md-button flex ng-click="nextPage()"><md-icon>keyboard_arrow_right</md-icon></md-button>
+            </div>
         </div>
         <div flex-xs flex-gt-xs="50" layout="column" ng-hide="isSelect">
             <md-toolbar class="md-menu-toolbar listHead" style="background:none;float:right;">
@@ -51,7 +55,7 @@
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">{{top.Title}}</span>
-                    <span class="md-subhead">{{topic.CreatedTime}} <md-icon>visibility</md-icon> {{top.ViewNum}} <md-icon>
+                    <span class="md-subhead">{{top.CreatedTime}} <md-icon>visibility</md-icon> {{top.ViewNum}} <md-icon>
                         comment
                     </md-icon> {{top.CommentNum}}</span>
                     </md-card-title-text>

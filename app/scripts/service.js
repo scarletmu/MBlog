@@ -12,8 +12,8 @@ angular.module('ScarletBlog')
     this.getTop = function(){
       return $http.get('/topic/getTop');
     };
-    this.getListByCategory = function(id){
-      return $http.get('/topic/getListByCategory?id='+id);
+    this.getListByCategory = function(id,page){
+      return $http.get('/topic/getListByCategory?id='+id+'&page='+page);
     };
   })
   .service('Category',function($http){

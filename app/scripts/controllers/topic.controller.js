@@ -19,6 +19,45 @@ angular.module('ScarletBlog')
       });
     }
     Init();
+
+    function getList(){
+      if(!$scope.isSelect){
+        Topic.getList($scope.page).then(function(data){
+          console.log(data);
+          if(data.data.length > 0){
+            $scope.topicList = data.data;
+          }else{
+            alert('已无下一页!')
+          }
+        })
+      }else{
+        Topic.getListByCategory($scope.categoryId,$scope.page).then(function(data){
+          if(data.data.length > 0){
+            $scope.topicList = data.data;
+          }else{
+            alert('已无下一页!')
+          }
+        })
+      }
+    }
+
+    $scope.selectCategory = function(id){
+      $scope.isSelect = true;
+      $scope.categoryId = id;
+      Topic.getListByCategory($scope.categoryId,1).then(function(data){
+        $scope.topicList = data.data;
+      })
+    };
+    //翻页
+    $scope.privPage = function(){
+      $scope.page == 1?$scope.page=1:$scope.page--;
+      getList();
+    };
+    $scope.nextPage = function(){
+      $scope.page++;
+      getList();
+    };
+
     $scope.delay = function(){
       if($scope.isOpen){
         $scope.isOpen = false;
@@ -44,12 +83,6 @@ angular.module('ScarletBlog')
       });
     };
 
-    $scope.selectCategory = function(id){
-      $scope.isSelect = true;
-      Topic.getListByCategory(id).then(function(data){
-        $scope.topicList = data.data;
-      })
-    };
     function DialogController($scope, $mdDialog,Topic,$state,$showdown,Comment) {
       $scope.topicId = sessionStorage.getItem('topicId');
       function Init(){

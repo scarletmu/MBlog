@@ -11,4 +11,4 @@ angular.module('ScarletBlog')
         alert('登录失败');
       });
     };
-  })
+  });

@@ -18,7 +18,7 @@ router.get('/getDetail',function(req,res,next){
 });
 
 router.get('/getListByCategory',function(req,res,next){
-  Topic.getListByCategory(req.query['id']).then((data) => {res.json(data)}).catch((err) => {console.log(err);res.status(400).end()})
+  Topic.getListByCategory(req.query['id'],req.query['page']).then((data) => {res.json(data)}).catch((err) => {console.log(err);res.status(400).end()})
 });
 
 module.exports  = router;

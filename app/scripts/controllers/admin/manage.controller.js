@@ -47,12 +47,12 @@ angular.module('ScarletBlog')
       $scope.html = $showdown.makeHtml($scope.topic.Content);
     };
     $scope.close = function () {
-      $mdDialog.cancel();
+      $mdDialog.hide();
     };
     $scope.save = function () {
       Admin.addTopic($scope.topic).then(function (data) {
         alert('保存成功');
-        $mdDialog.cancel();
+        $mdDialog.hide();
       }).catch(function(err){
         alert('保存失败');
       });
@@ -60,7 +60,7 @@ angular.module('ScarletBlog')
     $scope.update = function(){
       Admin.editTopic($scope.topicId,$scope.topic).then(function (data) {
         alert('保存成功');
-        $mdDialog.cancel();
+        $mdDialog.hide();
       }).catch(function(err){
         alert('保存失败');
       });
@@ -69,12 +69,12 @@ angular.module('ScarletBlog')
   .controller('CategoryManageCtrl',function($scope,$mdDialog,Admin){
     $scope.args = {};
     $scope.close = function () {
-      $mdDialog.cancel();
+      $mdDialog.hide();
     };
     $scope.save = function(){
       Admin.addCategory($scope.args).then(function(data){
         alert('保存成功!');
-        $mdDialog.cancel();
+        $mdDialog.hide();
       }).catch(function(err){
         alert('保存失败!');
       });
