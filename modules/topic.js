@@ -15,7 +15,7 @@ exports.editTopic = function(id,args){
 
 exports.getListByCategory = function(id,page){
   let select = {Category:id};
-  let limit = {sort:{createdTime:-1},skip:(page-1)*5,limit:5};
+  let limit = {sort:{CreatedTime:-1},skip:(page-1)*5,limit:5};
   return Topic.getList(select,limit)
 };
 
